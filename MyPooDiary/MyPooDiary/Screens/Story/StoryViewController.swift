@@ -129,6 +129,7 @@ extension StoryViewController {
         cheeringBottomLabel.text = "힘주기를 완료했어요."
     }
     
+    
     @objc
     private func touchUpBackButton() {
         self.dismiss(animated: true, completion: nil)

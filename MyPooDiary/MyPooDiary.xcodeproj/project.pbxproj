@@ -10,7 +10,6 @@
 		8EE68023292925CA00D71B64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68022292925CA00D71B64 /* AppDelegate.swift */; };
 		8EE68025292925CA00D71B64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68024292925CA00D71B64 /* SceneDelegate.swift */; };
 		8EE68027292925CA00D71B64 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68026292925CA00D71B64 /* MainViewController.swift */; };
-		8EE6802C292925CB00D71B64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EE6802B292925CB00D71B64 /* Assets.xcassets */; };
 		8EE6803B2929267300D71B64 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8EE6803A2929267300D71B64 /* SnapKit */; };
 		8EE6803E2929268000D71B64 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 8EE6803D2929268000D71B64 /* Then */; };
 		8EE68041292926C200D71B64 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8EE68040292926C200D71B64 /* Moya */; };
@@ -31,6 +30,10 @@
 		B849DC6B292944E200841F97 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DC6A292944E200841F97 /* FriendTableViewCell.swift */; };
 		B849DC6D292956EA00841F97 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DC6C292956EA00841F97 /* FriendViewController.swift */; };
 		B849DC712929774C00841F97 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DC702929774C00841F97 /* StoryViewController.swift */; };
+		D60B32A0292939D500D9A277 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60B329F292939D500D9A277 /* RecordTableViewCell.swift */; };
+		D60B32A32929408400D9A277 /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60B32A22929408400D9A277 /* RecordModel.swift */; };
+		D60B32A7292964FD00D9A277 /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60B32A6292964FD00D9A277 /* FriendCollectionViewCell.swift */; };
+		D60B32A9292967E100D9A277 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60B32A8292967E100D9A277 /* FriendModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,10 @@
 		B849DC6A292944E200841F97 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		B849DC6C292956EA00841F97 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		B849DC702929774C00841F97 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
+		D60B329F292939D500D9A277 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
+		D60B32A22929408400D9A277 /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
+		D60B32A6292964FD00D9A277 /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
+		D60B32A8292967E100D9A277 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +186,8 @@
 		8EE680472929276F00D71B64 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				D60B32A12929406700D9A277 /* Model */,
+				D60B329C2929395C00D9A277 /* Cell */,
 				8EE68026292925CA00D71B64 /* MainViewController.swift */,
 			);
 			path = Main;
@@ -236,6 +245,24 @@
 				B849DC702929774C00841F97 /* StoryViewController.swift */,
 			);
 			path = Story;
+			sourceTree = "<group>";
+		};
+		D60B329C2929395C00D9A277 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D60B329F292939D500D9A277 /* RecordTableViewCell.swift */,
+				D60B32A6292964FD00D9A277 /* FriendCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D60B32A12929406700D9A277 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D60B32A22929408400D9A277 /* RecordModel.swift */,
+				D60B32A8292967E100D9A277 /* FriendModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,7 +333,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EE6802C292925CB00D71B64 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,8 +346,11 @@
 				B849DC712929774C00841F97 /* StoryViewController.swift in Sources */,
 				8EE68067292934DC00D71B64 /* ReportViewController.swift in Sources */,
 				8EE68027292925CA00D71B64 /* MainViewController.swift in Sources */,
+				D60B32A32929408400D9A277 /* RecordModel.swift in Sources */,
+				D60B32A0292939D500D9A277 /* RecordTableViewCell.swift in Sources */,
 				8EE6804F292927F600D71B64 /* ColorLiterals.swift in Sources */,
 				B849DC6D292956EA00841F97 /* FriendViewController.swift in Sources */,
+				D60B32A9292967E100D9A277 /* FriendModel.swift in Sources */,
 				8EE6804D292927B600D71B64 /* ImageLiterals.swift in Sources */,
 				8EE68060292933C000D71B64 /* ExampleResponseDto.swift in Sources */,
 				8EE680492929278C00D71B64 /* addSubviews.swift in Sources */,
@@ -336,6 +365,7 @@
 				8EE6805E292933B100D71B64 /* ExampleRequestDto.swift in Sources */,
 				8EE6804B2929279A00D71B64 /* getClassName.swift in Sources */,
 				8EE68025292925CA00D71B64 /* SceneDelegate.swift in Sources */,
+				D60B32A7292964FD00D9A277 /* FriendCollectionViewCell.swift in Sources */,
 				8EE6805C2929328700D71B64 /* ExampleRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
