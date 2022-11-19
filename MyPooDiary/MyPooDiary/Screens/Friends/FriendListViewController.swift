@@ -32,7 +32,9 @@ final class FriendListViewController: UIViewController {
     
     // MARK: - UI
     private let topBar =  UIView()
-    private lazy var backButton = makeButton("Expand_left")
+    private lazy var backButton = makeButton("Expand_left").then {
+        $0.addTarget(self, action: #selector(touchUpBackButton), for: .touchUpInside)
+    }
     private lazy var friendsTableView = UITableView().then {
         $0.backgroundColor = .clear
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +54,10 @@ final class FriendListViewController: UIViewController {
     // MARK: - Functions
 
     // MARK: - @objc Function
+    @objc
+    private func touchUpBackButton() {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }
 
