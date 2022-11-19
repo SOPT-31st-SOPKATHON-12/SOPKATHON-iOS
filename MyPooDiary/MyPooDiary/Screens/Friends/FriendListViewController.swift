@@ -16,7 +16,7 @@ final class FriendListViewController: UIViewController {
 
     // MARK: - Properties
     var friendList: [FriendModel] = [
-        FriendModel(friendImage: "userIcon", name: "김솝트"),
+        FriendModel(friendImage: "userIcon", name: "이길동"),
         FriendModel(friendImage: "userIcon", name: "노한솔"),
         FriendModel(friendImage: "userIcon", name: "박의서"),
         FriendModel(friendImage: "userIcon", name: "김유빈"),
