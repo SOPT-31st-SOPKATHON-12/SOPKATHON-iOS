@@ -13,7 +13,7 @@ struct RecordModel: Codable {
 }
 
 let recordDummy: [RecordModel] = [
-    RecordModel(image: "dummyOne", time: "오후 11:52"),
-    RecordModel(image: "dummyTwo", time: "오후 11:52"),
-    RecordModel(image: "dummyThree", time: "오후 11:52")
+    RecordModel(image: "img_defalt", time: "오후 11:52"),
+    RecordModel(image: "img_regular_green", time: "오후 14:20"),
+    RecordModel(image: "img_soft_red", time: "오전 07:45")
 ]

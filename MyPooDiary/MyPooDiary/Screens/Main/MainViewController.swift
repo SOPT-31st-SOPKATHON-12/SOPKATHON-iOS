@@ -252,7 +252,18 @@ extension MainViewController: UICollectionViewDataSource {
         guard let friendCell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendCollectionViewCell.identifier, for: indexPath) as? FriendCollectionViewCell else { return UICollectionViewCell() }
         
         friendCell.dataBind(model: friendDummy[indexPath.item])
+
+        if indexPath.item == 0 {
+            friendCell.imageView.layer.borderWidth = 3
+            friendCell.imageView.layer.borderColor = UIColor(hex: "0066FF").cgColor
+        }
         return friendCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recordVC = RecordBottomSheet()
+        recordVC.modalPresentationStyle = .fullScreen
+        self.present(recordVC, animated: true, completion: nil)
     }
 }
 
