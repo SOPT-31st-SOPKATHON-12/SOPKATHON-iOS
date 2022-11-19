@@ -35,6 +35,7 @@ final class FriendsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        register()
         setUI()
         setLayout()
     }
@@ -48,7 +49,7 @@ final class FriendsViewController: UIViewController {
 // MARK: - Extensions
 extension FriendsViewController {
     
-    //MARK: - Custom Method
+    // MARK: - Custom Method
     
     private func setUI(){
         view.backgroundColor = .white
@@ -87,6 +88,36 @@ extension FriendsViewController {
         button.backgroundColor = .systemGray
         return button
     }
+    
+    // MARK: - General Helpers
+    
+    private func register() {
+        friendsTableView.register(FriendTableViewCell.self, forCellReuseIdentifier: FriendTableViewCell.identifier)
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension FriendsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension FriendsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return friendList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let friendCell = tableView.dequeueReusableCell(withIdentifier: FriendTableViewCell.identifier, for: indexPath) as? FriendTableViewCell else { return UITableViewCell() }
+        friendCell.dataBind(model: friendList[indexPath.row])
+        return friendCell
+    }
+    
+    
 }
 
 // MARK: - Network
