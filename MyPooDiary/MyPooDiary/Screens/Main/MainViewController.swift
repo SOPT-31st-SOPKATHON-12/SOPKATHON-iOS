@@ -46,11 +46,19 @@ final class MainViewController: UIViewController {
         $0.font = .systemFont(ofSize: 16, weight: .regular)
     }
     
-    private let cheerUpButton: UIButton = UIButton().then {
+    private lazy var cheerUpButton: UIButton = UIButton().then {
         $0.backgroundColor = .clear
         $0.setTitle("친구들 응원하러 가기", for: .normal)
         $0.setTitleColor(.black, for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
+        $0.addTarget(self, action: #selector(touchUpCheerUpButton), for: .touchUpInside)
+    }
+    
+    @objc
+    private func touchUpCheerUpButton() {
+        let friendListViewController = FriendListViewController()
+        friendListViewController.modalPresentationStyle = .fullScreen
+        self.present(friendListViewController, animated: true)
     }
     
     private let rightShift: UIImageView = UIImageView().then {
@@ -234,6 +242,12 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return headerView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyViewController = StoryViewController()
+        storyViewController.modalPresentationStyle = .fullScreen
+        self.present(storyViewController, animated: true)
     }
 }
 
