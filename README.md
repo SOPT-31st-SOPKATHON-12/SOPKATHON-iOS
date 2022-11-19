@@ -232,9 +232,9 @@ MyPooDiary
 <summary>접기/펼치기</summary>
 
 <!-- summary 아래 한칸 공백 두어야함 -->
-## 홈 뷰
+## ^^
 
-![Simulator Screen Recording - iPhone 13 mini - 2022-11-20 at 08 25 31](https://user-images.githubusercontent.com/80062632/202875491-ab241ad7-9387-4aee-80ee-7a0ea410724f.gif)
+![Simulator Screen Recording - iPhone 14 Pro - 2022-11-20 at 08 29 09](https://user-images.githubusercontent.com/70744494/202875612-20485fec-ba6e-4bf9-ba3c-8174f11cbd34.gif)
 
 
 </details>
