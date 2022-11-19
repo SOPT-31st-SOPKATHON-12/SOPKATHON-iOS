@@ -10,7 +10,6 @@
 		8EE68023292925CA00D71B64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68022292925CA00D71B64 /* AppDelegate.swift */; };
 		8EE68025292925CA00D71B64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68024292925CA00D71B64 /* SceneDelegate.swift */; };
 		8EE68027292925CA00D71B64 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68026292925CA00D71B64 /* MainViewController.swift */; };
-		8EE6802C292925CB00D71B64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EE6802B292925CB00D71B64 /* Assets.xcassets */; };
 		8EE6803B2929267300D71B64 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8EE6803A2929267300D71B64 /* SnapKit */; };
 		8EE6803E2929268000D71B64 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 8EE6803D2929268000D71B64 /* Then */; };
 		8EE68041292926C200D71B64 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8EE68040292926C200D71B64 /* Moya */; };
@@ -27,6 +26,9 @@
 		8EE68060292933C000D71B64 /* ExampleResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6805F292933C000D71B64 /* ExampleResponseDto.swift */; };
 		8EE68065292934A900D71B64 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68064292934A900D71B64 /* FriendsViewController.swift */; };
 		8EE68067292934DC00D71B64 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68066292934DC00D71B64 /* ReportViewController.swift */; };
+		8EE680692929525300D71B64 /* RecordBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE680682929525300D71B64 /* RecordBottomSheet.swift */; };
+		8EE6806B292952A100D71B64 /* RecordDetailBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6806A292952A100D71B64 /* RecordDetailBottomSheet.swift */; };
+		8EE680712929756000D71B64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EE680702929756000D71B64 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +36,6 @@
 		8EE68022292925CA00D71B64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EE68024292925CA00D71B64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8EE68026292925CA00D71B64 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		8EE6802B292925CB00D71B64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EE68030292925CB00D71B64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EE680482929278C00D71B64 /* addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSubviews.swift; sourceTree = "<group>"; };
 		8EE6804A2929279A00D71B64 /* getClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getClassName.swift; sourceTree = "<group>"; };
@@ -49,6 +50,9 @@
 		8EE6805F292933C000D71B64 /* ExampleResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleResponseDto.swift; sourceTree = "<group>"; };
 		8EE68064292934A900D71B64 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		8EE68066292934DC00D71B64 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		8EE680682929525300D71B64 /* RecordBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBottomSheet.swift; sourceTree = "<group>"; };
+		8EE6806A292952A100D71B64 /* RecordDetailBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailBottomSheet.swift; sourceTree = "<group>"; };
+		8EE680702929756000D71B64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +131,7 @@
 		8EE680422929274E00D71B64 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8EE6802B292925CB00D71B64 /* Assets.xcassets */,
+				8EE680702929756000D71B64 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -171,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				8EE68026292925CA00D71B64 /* MainViewController.swift */,
+				8EE680682929525300D71B64 /* RecordBottomSheet.swift */,
+				8EE6806A292952A100D71B64 /* RecordDetailBottomSheet.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -286,7 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EE6802C292925CB00D71B64 /* Assets.xcassets in Resources */,
+				8EE680712929756000D71B64 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +305,7 @@
 			files = (
 				8EE68067292934DC00D71B64 /* ReportViewController.swift in Sources */,
 				8EE68027292925CA00D71B64 /* MainViewController.swift in Sources */,
+				8EE6806B292952A100D71B64 /* RecordDetailBottomSheet.swift in Sources */,
 				8EE6804F292927F600D71B64 /* ColorLiterals.swift in Sources */,
 				8EE6804D292927B600D71B64 /* ImageLiterals.swift in Sources */,
 				8EE68060292933C000D71B64 /* ExampleResponseDto.swift in Sources */,
@@ -309,6 +316,7 @@
 				8EE680582929325200D71B64 /* Encodable+.swift in Sources */,
 				8EE68065292934A900D71B64 /* FriendsViewController.swift in Sources */,
 				8EE6805A2929327800D71B64 /* NetworkLoggerPlugin.swift in Sources */,
+				8EE680692929525300D71B64 /* RecordBottomSheet.swift in Sources */,
 				8EE6805E292933B100D71B64 /* ExampleRequestDto.swift in Sources */,
 				8EE6804B2929279A00D71B64 /* getClassName.swift in Sources */,
 				8EE68025292925CA00D71B64 /* SceneDelegate.swift in Sources */,
@@ -445,6 +453,7 @@
 				INFOPLIST_FILE = MyPooDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -473,6 +482,7 @@
 				INFOPLIST_FILE = MyPooDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
