@@ -234,7 +234,8 @@ MyPooDiary
 <!-- summary 아래 한칸 공백 두어야함 -->
 ## ^^
 
-![Simulator Screen Recording - iPhone 14 Pro - 2022-11-20 at 08 29 09](https://user-images.githubusercontent.com/70744494/202875612-20485fec-ba6e-4bf9-ba3c-8174f11cbd34.gif)
+![Simulator Screen Recording - iPhone 14 Pro - 2022-11-20 at 08 41 49](https://user-images.githubusercontent.com/70744494/202875903-67209771-0861-4a01-bbfd-2fed19de9ffa.gif)
+
 
 
 </details>
