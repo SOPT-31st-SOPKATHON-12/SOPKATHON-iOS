@@ -16,9 +16,18 @@ final class FriendListViewController: UIViewController {
 
     // MARK: - Properties
     var friendList: [FriendModel] = [
-        FriendModel(friendImage: "userIcon", name: "💩"),
-        FriendModel(friendImage: "userIcon", name: "💩"),
-        FriendModel(friendImage: "userIcon", name: "💩")
+        FriendModel(friendImage: "userIcon", name: "김솝트"),
+        FriendModel(friendImage: "userIcon", name: "노한솔"),
+        FriendModel(friendImage: "userIcon", name: "박의서"),
+        FriendModel(friendImage: "userIcon", name: "김유빈"),
+        FriendModel(friendImage: "userIcon", name: "이승헌"),
+        FriendModel(friendImage: "userIcon", name: "김은수"),
+        FriendModel(friendImage: "userIcon", name: "윤수빈"),
+        FriendModel(friendImage: "userIcon", name: "김인영"),
+        FriendModel(friendImage: "userIcon", name: "이화정"),
+        FriendModel(friendImage: "userIcon", name: "전희선"),
+        FriendModel(friendImage: "userIcon", name: "손혜정"),
+        FriendModel(friendImage: "userIcon", name: "박서원")
     ]
     
     // MARK: - UI
@@ -85,13 +94,7 @@ extension FriendListViewController {
         return button
     }
     
-//    @objc
-//    private func pushToFriendViewController() {
-//        let friendViewController = FriendViewController()
-//
-//        self.navigationController?.pushViewController(friendViewController, animated: true)
-//    }
-    
+
     // MARK: - General Helpers
     
     private func register() {
@@ -120,12 +123,12 @@ extension FriendListViewController: UITableViewDataSource {
         return friendCell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        pushToFriendViewController()
-//    }
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let friendViewController = FriendViewController()
+        friendViewController.modalPresentationStyle = .overFullScreen
+        self.present(friendViewController, animated: true)
+    }
 }
-
-// MARK: - Network
+    
+    // MARK: - Network
 

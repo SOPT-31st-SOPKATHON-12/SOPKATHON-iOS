@@ -35,7 +35,9 @@ final class FriendViewController: UIViewController {
         $0.addTarget(self, action: #selector(touchUpCheeringButton), for: .touchUpInside)
     }
     
-    private lazy var backButton = makeButton("Expand_left")
+    private lazy var backButton = makeButton("Expand_left").then {
+        $0.addTarget(self, action: #selector(touchUpBackButton), for: .touchUpInside)
+    }
     private var infoLabel = UILabel().then {
         $0.text = "이길동님의 변기록이에요"
         $0.font = .systemFont(ofSize: 20, weight: .bold)
@@ -68,7 +70,10 @@ final class FriendViewController: UIViewController {
     }
     
     // MARK: - Functions
-    
+    @objc
+    private func touchUpBackButton() {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
 }
