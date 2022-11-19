@@ -27,6 +27,10 @@
 		8EE68060292933C000D71B64 /* ExampleResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6805F292933C000D71B64 /* ExampleResponseDto.swift */; };
 		8EE68065292934A900D71B64 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68064292934A900D71B64 /* FriendsViewController.swift */; };
 		8EE68067292934DC00D71B64 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68066292934DC00D71B64 /* ReportViewController.swift */; };
+		D60B32A0292939D500D9A277 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60B329F292939D500D9A277 /* RecordTableViewCell.swift */; };
+		D60B32A32929408400D9A277 /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60B32A22929408400D9A277 /* RecordModel.swift */; };
+		D60B32A7292964FD00D9A277 /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60B32A6292964FD00D9A277 /* FriendCollectionViewCell.swift */; };
+		D60B32A9292967E100D9A277 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60B32A8292967E100D9A277 /* FriendModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +53,10 @@
 		8EE6805F292933C000D71B64 /* ExampleResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleResponseDto.swift; sourceTree = "<group>"; };
 		8EE68064292934A900D71B64 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		8EE68066292934DC00D71B64 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		D60B329F292939D500D9A277 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
+		D60B32A22929408400D9A277 /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
+		D60B32A6292964FD00D9A277 /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
+		D60B32A8292967E100D9A277 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +178,8 @@
 		8EE680472929276F00D71B64 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				D60B32A12929406700D9A277 /* Model */,
+				D60B329C2929395C00D9A277 /* Cell */,
 				8EE68026292925CA00D71B64 /* MainViewController.swift */,
 			);
 			path = Main;
@@ -216,6 +226,24 @@
 				8EE68066292934DC00D71B64 /* ReportViewController.swift */,
 			);
 			path = Report;
+			sourceTree = "<group>";
+		};
+		D60B329C2929395C00D9A277 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D60B329F292939D500D9A277 /* RecordTableViewCell.swift */,
+				D60B32A6292964FD00D9A277 /* FriendCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D60B32A12929406700D9A277 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D60B32A22929408400D9A277 /* RecordModel.swift */,
+				D60B32A8292967E100D9A277 /* FriendModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,7 +327,10 @@
 			files = (
 				8EE68067292934DC00D71B64 /* ReportViewController.swift in Sources */,
 				8EE68027292925CA00D71B64 /* MainViewController.swift in Sources */,
+				D60B32A32929408400D9A277 /* RecordModel.swift in Sources */,
+				D60B32A0292939D500D9A277 /* RecordTableViewCell.swift in Sources */,
 				8EE6804F292927F600D71B64 /* ColorLiterals.swift in Sources */,
+				D60B32A9292967E100D9A277 /* FriendModel.swift in Sources */,
 				8EE6804D292927B600D71B64 /* ImageLiterals.swift in Sources */,
 				8EE68060292933C000D71B64 /* ExampleResponseDto.swift in Sources */,
 				8EE680492929278C00D71B64 /* addSubviews.swift in Sources */,
@@ -312,6 +343,7 @@
 				8EE6805E292933B100D71B64 /* ExampleRequestDto.swift in Sources */,
 				8EE6804B2929279A00D71B64 /* getClassName.swift in Sources */,
 				8EE68025292925CA00D71B64 /* SceneDelegate.swift in Sources */,
+				D60B32A7292964FD00D9A277 /* FriendCollectionViewCell.swift in Sources */,
 				8EE6805C2929328700D71B64 /* ExampleRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
