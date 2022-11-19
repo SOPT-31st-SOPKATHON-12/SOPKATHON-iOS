@@ -16,17 +16,18 @@ final class FriendListViewController: UIViewController {
 
     // MARK: - Properties
     var friendList: [FriendModel] = [
-        FriendModel(friendImage: "friend1", name: "💩"),
-        FriendModel(friendImage: "friend2", name: "💩"),
-        FriendModel(friendImage: "friend3", name: "💩")
+        FriendModel(friendImage: "userIcon", name: "💩"),
+        FriendModel(friendImage: "userIcon", name: "💩"),
+        FriendModel(friendImage: "userIcon", name: "💩")
     ]
     
     // MARK: - UI
     private let topBar =  UIView()
-    private lazy var backButton = makeButton("")
+    private lazy var backButton = makeButton("Expand_left")
     private lazy var friendsTableView = UITableView().then {
         $0.backgroundColor = .clear
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.separatorStyle = .none
         $0.delegate = self
         $0.dataSource = self
     }
@@ -81,9 +82,15 @@ extension FriendListViewController {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: imageString), for: .normal)
         button.contentMode = .scaleAspectFit
-        button.backgroundColor = .systemGray
         return button
     }
+    
+//    @objc
+//    private func pushToFriendViewController() {
+//        let friendViewController = FriendViewController()
+//
+//        self.navigationController?.pushViewController(friendViewController, animated: true)
+//    }
     
     // MARK: - General Helpers
     
@@ -112,6 +119,10 @@ extension FriendListViewController: UITableViewDataSource {
         friendCell.dataBind(model: friendList[indexPath.row])
         return friendCell
     }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        pushToFriendViewController()
+//    }
     
     
 }

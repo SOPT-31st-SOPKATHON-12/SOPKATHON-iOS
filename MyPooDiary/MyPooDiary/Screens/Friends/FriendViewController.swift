@@ -35,12 +35,12 @@ final class FriendViewController: UIViewController {
         $0.addTarget(self, action: #selector(touchUpCheeringButton), for: .touchUpInside)
     }
     
-    private lazy var backButton = makeButton("")
+    private lazy var backButton = makeButton("Expand_left")
     private var infoLabel = UILabel().then {
         $0.text = "이길동님의 변기록이에요"
         $0.font = .systemFont(ofSize: 20, weight: .bold)
     }
-    private lazy var userProfilesImage = makeImageView("")
+    private lazy var userProfilesImage = makeImageView("userProfiles")
     private var cheeringLabel = UILabel().then {
         $0.text = "박서현님 외 12명이 응원하고 있어요!"
         $0.font = .systemFont(ofSize: 16)
@@ -151,7 +151,6 @@ extension FriendViewController {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: imageString), for: .normal)
         button.contentMode = .scaleAspectFit
-        button.backgroundColor = .systemGray
         return button
     }
     
