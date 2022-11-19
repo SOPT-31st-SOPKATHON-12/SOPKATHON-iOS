@@ -71,7 +71,7 @@ final class RecordDetailBottomSheet: UIViewController {
     
     
     private lazy var completeButton = UIButton(type: .system).then {
-        $0.setTitleColor(.white, for: .normal)
+        $0.setAttributedTitle(NSAttributedString(string: "완료", attributes: [.font: UIFont.systemFont(ofSize: 16, weight: .bold), .foregroundColor: UIColor.white]), for: .normal)
         $0.backgroundColor = .blue
         $0.layer.cornerRadius = 14
         $0.addTarget(self, action: #selector(completeButtonDidTap), for: .touchUpInside)
@@ -91,7 +91,7 @@ final class RecordDetailBottomSheet: UIViewController {
         view.addSubview(containerView)
         containerView.addSubviews(backButton, titleLabel, colorLabel, strengthLabel)
         containerView.addSubviews(colorButton1, colorButton2, colorButton3, colorButton4, colorButton5)
-        containerView.addSubviews(strengthButton1, strengthButton2, strengthButton3)
+        containerView.addSubviews(strengthButton1, strengthButton2, strengthButton3, completeButton)
         
         containerView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
@@ -169,6 +169,12 @@ final class RecordDetailBottomSheet: UIViewController {
             make.centerY.equalTo(strengthLabel)
             make.width.equalTo(34)
             make.height.equalTo(58)
+        }
+        
+        completeButton.snp.makeConstraints { make in
+            make.top.equalTo(strengthLabel.snp.bottom).offset(58)
+            make.leading.trailing.equalToSuperview().inset(24)
+            make.height.equalTo(60)
         }
     }
     
