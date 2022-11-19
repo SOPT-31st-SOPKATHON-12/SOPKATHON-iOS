@@ -29,6 +29,7 @@ final class FriendViewController: UIViewController {
             blur: 18,
             spread: 0)
     }
+    private let pooBackgroundImage = UIImageView(image: UIImage(named: "img_main_background"))
     private lazy var cheeringButton = UIButton().then {
         $0.backgroundColor = UIColor(hex: "0066FF", alpha: 1)
         $0.layer.cornerRadius = 14
@@ -47,7 +48,7 @@ final class FriendViewController: UIViewController {
         $0.text = "박서현님 외 12명이 응원하고 있어요!"
         $0.font = .systemFont(ofSize: 16)
     }
-    private lazy var poorImageView = makeImageView("")
+    private lazy var poorImageView = makeImageView("img_regular_green")
     private var pooTimeLabel = UILabel().then {
         $0.text = "오후 11:52"
         $0.font = .systemFont(ofSize: 16, weight: .bold)
@@ -119,15 +120,17 @@ extension FriendViewController {
         }
         
         // MARK: - Poo View Constraints
-        pooView.addSubviews(poorImageView, pooTimeLabel)
+        pooView.addSubviews(pooBackgroundImage, poorImageView, pooTimeLabel)
         pooView.snp.makeConstraints {
             $0.top.equalTo(cheeringLabel.snp.bottom).offset(18)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(24)
             $0.height.equalTo(pooView.snp.width)
         }
+        pooBackgroundImage.snp.makeConstraints {
+            $0.top.leading.trailing.bottom.equalToSuperview().inset(16)
+        }
         poorImageView.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-            $0.height.width.equalTo(40)
+            $0.top.leading.trailing.bottom.equalTo(pooBackgroundImage).inset(12)
         }
         pooTimeLabel.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(20)
