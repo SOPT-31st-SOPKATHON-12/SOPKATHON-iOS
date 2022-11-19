@@ -89,6 +89,15 @@ final class MainViewController: UIViewController {
     
     private let orderButton: UIButton = UIButton().then {
         $0.setImage(UIImage(named: "Order"), for: .normal)
+        $0.addTarget(self, action: #selector(touchOrder), for: .touchUpInside)
+    }
+    
+    @objc
+    func touchOrder() {
+        let report = ReportViewController()
+        report.modalPresentationStyle = .overFullScreen
+        
+        self.present(report, animated: true)
     }
     
     private let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout().then {

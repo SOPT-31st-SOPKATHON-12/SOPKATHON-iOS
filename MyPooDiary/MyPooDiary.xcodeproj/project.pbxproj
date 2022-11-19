@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1476594A29299CFC008C68C6 /* reportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476594929299CFC008C68C6 /* reportTableViewCell.swift */; };
+		1476594C29299D0B008C68C6 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476594B29299D0B008C68C6 /* ReportModel.swift */; };
 		8EE68023292925CA00D71B64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68022292925CA00D71B64 /* AppDelegate.swift */; };
 		8EE68025292925CA00D71B64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68024292925CA00D71B64 /* SceneDelegate.swift */; };
 		8EE68027292925CA00D71B64 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68026292925CA00D71B64 /* MainViewController.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1476594929299CFC008C68C6 /* reportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reportTableViewCell.swift; sourceTree = "<group>"; };
+		1476594B29299D0B008C68C6 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
 		8EE6801F292925CA00D71B64 /* MyPooDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPooDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EE68022292925CA00D71B64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EE68024292925CA00D71B64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -228,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				8EE68066292934DC00D71B64 /* ReportViewController.swift */,
+				1476594929299CFC008C68C6 /* reportTableViewCell.swift */,
+				1476594B29299D0B008C68C6 /* ReportModel.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -372,7 +378,9 @@
 				8EE68025292925CA00D71B64 /* SceneDelegate.swift in Sources */,
 				B8D2D89B29299A58005F930D /* FriendListModel.swift in Sources */,
 				D60B32A7292964FD00D9A277 /* FriendCollectionViewCell.swift in Sources */,
+				1476594C29299D0B008C68C6 /* ReportModel.swift in Sources */,
 				8EE6805C2929328700D71B64 /* RecordRouter.swift in Sources */,
+				1476594A29299CFC008C68C6 /* reportTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
