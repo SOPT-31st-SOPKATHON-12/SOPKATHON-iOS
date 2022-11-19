@@ -27,6 +27,7 @@
 		8EE68060292933C000D71B64 /* ExampleResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6805F292933C000D71B64 /* ExampleResponseDto.swift */; };
 		8EE68065292934A900D71B64 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68064292934A900D71B64 /* FriendsViewController.swift */; };
 		8EE68067292934DC00D71B64 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68066292934DC00D71B64 /* ReportViewController.swift */; };
+		B849DC6929293D9A00841F97 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DC6829293D9A00841F97 /* FriendModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		8EE6805F292933C000D71B64 /* ExampleResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleResponseDto.swift; sourceTree = "<group>"; };
 		8EE68064292934A900D71B64 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		8EE68066292934DC00D71B64 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		B849DC6829293D9A00841F97 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				8EE68064292934A900D71B64 /* FriendsViewController.swift */,
+				B849DC6829293D9A00841F97 /* FriendModel.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				8EE680512929280300D71B64 /* FontLiterals.swift in Sources */,
 				8EE6805629292BB600D71B64 /* APIConstants.swift in Sources */,
 				8EE68023292925CA00D71B64 /* AppDelegate.swift in Sources */,
+				B849DC6929293D9A00841F97 /* FriendModel.swift in Sources */,
 				8EE680582929325200D71B64 /* Encodable+.swift in Sources */,
 				8EE68065292934A900D71B64 /* FriendsViewController.swift in Sources */,
 				8EE6805A2929327800D71B64 /* NetworkLoggerPlugin.swift in Sources */,
