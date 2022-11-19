@@ -28,6 +28,7 @@
 		8EE68065292934A900D71B64 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68064292934A900D71B64 /* FriendsViewController.swift */; };
 		8EE68067292934DC00D71B64 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68066292934DC00D71B64 /* ReportViewController.swift */; };
 		B849DC6929293D9A00841F97 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DC6829293D9A00841F97 /* FriendModel.swift */; };
+		B849DC6B292944E200841F97 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DC6A292944E200841F97 /* FriendTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		8EE68064292934A900D71B64 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		8EE68066292934DC00D71B64 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		B849DC6829293D9A00841F97 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		B849DC6A292944E200841F97 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 			children = (
 				8EE68064292934A900D71B64 /* FriendsViewController.swift */,
 				B849DC6829293D9A00841F97 /* FriendModel.swift */,
+				B849DC6A292944E200841F97 /* FriendTableViewCell.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				8EE680512929280300D71B64 /* FontLiterals.swift in Sources */,
 				8EE6805629292BB600D71B64 /* APIConstants.swift in Sources */,
 				8EE68023292925CA00D71B64 /* AppDelegate.swift in Sources */,
+				B849DC6B292944E200841F97 /* FriendTableViewCell.swift in Sources */,
 				B849DC6929293D9A00841F97 /* FriendModel.swift in Sources */,
 				8EE680582929325200D71B64 /* Encodable+.swift in Sources */,
 				8EE68065292934A900D71B64 /* FriendsViewController.swift in Sources */,

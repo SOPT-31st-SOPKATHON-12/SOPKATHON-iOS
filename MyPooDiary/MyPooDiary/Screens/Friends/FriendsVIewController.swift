@@ -15,10 +15,21 @@ import Moya
 final class FriendsViewController: UIViewController {
 
     // MARK: - Properties
+    var friendList: [FriendModel] = [
+        FriendModel(friendImage: "friend1", name: "💩"),
+        FriendModel(friendImage: "friend2", name: "💩"),
+        FriendModel(friendImage: "friend3", name: "💩")
+    ]
     
     // MARK: - UI
     private let topBar =  UIView()
     private lazy var backButton = makeButton("")
+    private lazy var friendsTableView = UITableView().then {
+        $0.backgroundColor = .clear
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.delegate = self
+        $0.dataSource = self
+    }
     
     // MARK: - View Life Cycle
 
@@ -44,7 +55,7 @@ extension FriendsViewController {
     }
     
     private func setLayout() {
-        view.addSubviews(topBar)
+        view.addSubviews(topBar, friendsTableView)
         
         // MARK: - TopBar View Constraints
         topBar.backgroundColor = .systemGray2
@@ -58,6 +69,14 @@ extension FriendsViewController {
             $0.leading.equalToSuperview().inset(27)
             $0.width.equalTo(25)
             $0.height.equalTo(34)
+        }
+        
+        // MARK: - FriendsTableView Constraints
+        friendsTableView.snp.makeConstraints {
+            $0.top.equalTo(topBar.snp.bottom)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalToSuperview()
+            $0.height.equalTo(70 * friendList.count)
         }
     }
     
