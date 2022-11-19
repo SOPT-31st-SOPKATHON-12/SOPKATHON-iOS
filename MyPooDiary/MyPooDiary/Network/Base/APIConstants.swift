@@ -11,7 +11,6 @@ struct APIConstants {
     
     // MARK: - Base URL
     
-    static let baseURL = "http://"
-    
+    static let baseURL = "http://52.78.182.200:8000"
 }
 

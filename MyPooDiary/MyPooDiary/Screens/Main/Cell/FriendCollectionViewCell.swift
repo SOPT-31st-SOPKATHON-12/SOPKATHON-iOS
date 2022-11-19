@@ -13,8 +13,9 @@ class FriendCollectionViewCell: UICollectionViewCell {
     
     private let contentsView: UIView = UIView()
     
-    private let imageView: UIImageView = UIImageView().then {
+    let imageView: UIImageView = UIImageView().then {
         $0.image = UIImage(named: "friend")
+        $0.layer.cornerRadius = 25
     }
     
     private let nameLabel: UILabel = UILabel().then {
@@ -47,6 +48,7 @@ extension FriendCollectionViewCell {
         imageView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.centerX.equalToSuperview()
+            $0.width.height.equalTo(50)
         }
         
         nameLabel.snp.makeConstraints {

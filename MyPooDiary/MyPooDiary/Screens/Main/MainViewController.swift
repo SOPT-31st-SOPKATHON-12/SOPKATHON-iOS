@@ -16,6 +16,9 @@ final class MainViewController: UIViewController {
 
     // MARK: - Properties
     
+    let recordProvider = MoyaProvider<RecordRouter>(
+    plugins: [NetworkLoggerPlugin(verbose: true)])
+    
     // MARK: - UI
     private let headerView: UIView = UIView().then {
         $0.backgroundColor = .white
@@ -98,6 +101,7 @@ final class MainViewController: UIViewController {
         
         register()
         setLayout()
+//        getRecordAPI()
     }
     
     // MARK: - Functions
@@ -252,9 +256,44 @@ extension MainViewController: UICollectionViewDataSource {
         guard let friendCell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendCollectionViewCell.identifier, for: indexPath) as? FriendCollectionViewCell else { return UICollectionViewCell() }
         
         friendCell.dataBind(model: friendDummy[indexPath.item])
+
+        if indexPath.item == 0 {
+            friendCell.imageView.layer.borderWidth = 3
+            friendCell.imageView.layer.borderColor = UIColor(hex: "0066FF").cgColor
+        }
         return friendCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recordVC = RecordBottomSheet()
+        recordVC.modalPresentationStyle = .fullScreen
+        self.present(recordVC, animated: true, completion: nil)
     }
 }
 
 // MARK: - Network
+
+extension MainViewController {
+    func getRecordAPI() {
+        recordProvider.request(.getRecord) { response in
+            switch response {
+            case .success(let result):
+                let status = result.statusCode
+                if status >= 200 && status < 300 {
+                    do {
+                        self.collectionView.reloadData()
+                    }
+                    catch(let error) {
+                        print(error.localizedDescription)
+                    }
+                }
+                if status >= 400 {
+                    print("400 error")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
 

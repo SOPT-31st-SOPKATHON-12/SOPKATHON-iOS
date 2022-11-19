@@ -84,7 +84,7 @@ final class RecordDetailBottomSheet: UIViewController {
             $0.addTarget(self, action: #selector(buttonDidTap(sender: )), for: .touchUpInside)
             $0.layer.cornerRadius = 12
         }
-        
+        view.backgroundColor = UIColor(hex: "767676")
     }
     
     private func setLayout() {

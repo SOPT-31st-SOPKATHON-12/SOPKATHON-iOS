@@ -48,6 +48,7 @@ final class RecordBottomSheet: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
+        view.backgroundColor = UIColor(hex: "767676")
     }
     
     private func setLayout() {
@@ -97,6 +98,7 @@ final class RecordBottomSheet: UIViewController {
         likeButton.isUserInteractionEnabled = false
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
             //network
+            self.dismiss(animated: true)
         }
     }
     
