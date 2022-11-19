@@ -21,9 +21,8 @@
 		8EE6805629292BB600D71B64 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6805529292BB600D71B64 /* APIConstants.swift */; };
 		8EE680582929325200D71B64 /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE680572929325200D71B64 /* Encodable+.swift */; };
 		8EE6805A2929327800D71B64 /* NetworkLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE680592929327800D71B64 /* NetworkLoggerPlugin.swift */; };
-		8EE6805C2929328700D71B64 /* ExampleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6805B2929328700D71B64 /* ExampleRouter.swift */; };
-		8EE6805E292933B100D71B64 /* ExampleRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6805D292933B100D71B64 /* ExampleRequestDto.swift */; };
-		8EE68060292933C000D71B64 /* ExampleResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6805F292933C000D71B64 /* ExampleResponseDto.swift */; };
+		8EE6805C2929328700D71B64 /* RecordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6805B2929328700D71B64 /* RecordRouter.swift */; };
+		8EE68060292933C000D71B64 /* RecordResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6805F292933C000D71B64 /* RecordResponseDto.swift */; };
 		8EE68065292934A900D71B64 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68064292934A900D71B64 /* FriendsViewController.swift */; };
 		8EE68067292934DC00D71B64 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE68066292934DC00D71B64 /* ReportViewController.swift */; };
 		8EE680692929525300D71B64 /* RecordBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE680682929525300D71B64 /* RecordBottomSheet.swift */; };
@@ -49,9 +48,8 @@
 		8EE6805529292BB600D71B64 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		8EE680572929325200D71B64 /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		8EE680592929327800D71B64 /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
-		8EE6805B2929328700D71B64 /* ExampleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRouter.swift; sourceTree = "<group>"; };
-		8EE6805D292933B100D71B64 /* ExampleRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRequestDto.swift; sourceTree = "<group>"; };
-		8EE6805F292933C000D71B64 /* ExampleResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleResponseDto.swift; sourceTree = "<group>"; };
+		8EE6805B2929328700D71B64 /* RecordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRouter.swift; sourceTree = "<group>"; };
+		8EE6805F292933C000D71B64 /* RecordResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordResponseDto.swift; sourceTree = "<group>"; };
 		8EE68064292934A900D71B64 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		8EE68066292934DC00D71B64 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		8EE680682929525300D71B64 /* RecordBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBottomSheet.swift; sourceTree = "<group>"; };
@@ -204,7 +202,7 @@
 		8EE6805329292B2000D71B64 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				8EE6805B2929328700D71B64 /* ExampleRouter.swift */,
+				8EE6805B2929328700D71B64 /* RecordRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -212,8 +210,7 @@
 		8EE6805429292B7D00D71B64 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				8EE6805D292933B100D71B64 /* ExampleRequestDto.swift */,
-				8EE6805F292933C000D71B64 /* ExampleResponseDto.swift */,
+				8EE6805F292933C000D71B64 /* RecordResponseDto.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -339,7 +336,7 @@
 				8EE6804F292927F600D71B64 /* ColorLiterals.swift in Sources */,
 				D60B32A9292967E100D9A277 /* FriendModel.swift in Sources */,
 				8EE6804D292927B600D71B64 /* ImageLiterals.swift in Sources */,
-				8EE68060292933C000D71B64 /* ExampleResponseDto.swift in Sources */,
+				8EE68060292933C000D71B64 /* RecordResponseDto.swift in Sources */,
 				8EE680492929278C00D71B64 /* addSubviews.swift in Sources */,
 				8EE680512929280300D71B64 /* FontLiterals.swift in Sources */,
 				8EE6805629292BB600D71B64 /* APIConstants.swift in Sources */,
@@ -348,11 +345,10 @@
 				8EE68065292934A900D71B64 /* FriendsViewController.swift in Sources */,
 				8EE6805A2929327800D71B64 /* NetworkLoggerPlugin.swift in Sources */,
 				8EE680692929525300D71B64 /* RecordBottomSheet.swift in Sources */,
-				8EE6805E292933B100D71B64 /* ExampleRequestDto.swift in Sources */,
 				8EE6804B2929279A00D71B64 /* getClassName.swift in Sources */,
 				8EE68025292925CA00D71B64 /* SceneDelegate.swift in Sources */,
 				D60B32A7292964FD00D9A277 /* FriendCollectionViewCell.swift in Sources */,
-				8EE6805C2929328700D71B64 /* ExampleRouter.swift in Sources */,
+				8EE6805C2929328700D71B64 /* RecordRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
