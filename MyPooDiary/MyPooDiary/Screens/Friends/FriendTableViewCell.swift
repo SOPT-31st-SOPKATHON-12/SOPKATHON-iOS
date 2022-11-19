@@ -18,9 +18,7 @@ final class FriendTableViewCell: UITableViewCell {
     
     // MARK: - UI Components
     
-    private let profileImageView = UIImageView().then {
-        $0.image = UIImage(named: "")
-    }
+    private let profileImageView = UIImageView()
     private let nameLabel = UILabel().then {
         $0.textColor = .black
         $0.text = "라이푸"
@@ -42,17 +40,9 @@ final class FriendTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
     // MARK: - General Helpers
     
-    func dataBind(model: FriendModel) {
+    func dataBind(model: FriendListModel) {
         profileImageView.image = UIImage(named: model.friendImage)
         nameLabel.text = model.name
     }
@@ -67,6 +57,7 @@ final class FriendTableViewCell: UITableViewCell {
         profileImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(24)
+            $0.width.height.equalTo(50)
         }
         
         nameLabel.snp.makeConstraints {

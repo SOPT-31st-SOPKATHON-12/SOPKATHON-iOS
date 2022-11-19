@@ -15,19 +15,19 @@ import Moya
 final class FriendListViewController: UIViewController {
 
     // MARK: - Properties
-    var friendList: [FriendModel] = [
-        FriendModel(friendImage: "icon_profile", name: "이길동"),
-        FriendModel(friendImage: "icon_profile", name: "노한솔"),
-        FriendModel(friendImage: "icon_profile", name: "박의서"),
-        FriendModel(friendImage: "icon_profile", name: "김유빈"),
-        FriendModel(friendImage: "icon_profile", name: "이승헌"),
-        FriendModel(friendImage: "icon_profile", name: "김은수"),
-        FriendModel(friendImage: "icon_profile", name: "윤수빈"),
-        FriendModel(friendImage: "icon_profile", name: "김인영"),
-        FriendModel(friendImage: "icon_profile", name: "이화정"),
-        FriendModel(friendImage: "icon_profile", name: "전희선"),
-        FriendModel(friendImage: "icon_profile", name: "손혜정"),
-        FriendModel(friendImage: "icon_profile", name: "박서원")
+    var friendList: [FriendListModel] = [
+        FriendListModel(friendImage: "icon_profile", name: "이길동"),
+        FriendListModel(friendImage: "icon_profile", name: "노한솔"),
+        FriendListModel(friendImage: "icon_profile", name: "박의서"),
+        FriendListModel(friendImage: "icon_profile", name: "김유빈"),
+        FriendListModel(friendImage: "icon_profile", name: "이승헌"),
+        FriendListModel(friendImage: "icon_profile", name: "김은수"),
+        FriendListModel(friendImage: "icon_profile", name: "윤수빈"),
+        FriendListModel(friendImage: "icon_profile", name: "김인영"),
+        FriendListModel(friendImage: "icon_profile", name: "이화정"),
+        FriendListModel(friendImage: "icon_profile", name: "전희선"),
+        FriendListModel(friendImage: "icon_profile", name: "손혜정"),
+        FriendListModel(friendImage: "icon_profile", name: "박서원")
     ]
     
     // MARK: - UI
@@ -87,9 +87,7 @@ extension FriendListViewController {
         // MARK: - FriendsTableView Constraints
         friendsTableView.snp.makeConstraints {
             $0.top.equalTo(topBar.snp.bottom)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.bottom.equalToSuperview()
-            $0.height.equalTo(70 * friendList.count)
+            $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
