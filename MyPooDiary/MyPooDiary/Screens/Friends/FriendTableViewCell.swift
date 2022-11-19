@@ -27,8 +27,8 @@ final class FriendTableViewCell: UITableViewCell {
         $0.font = .systemFont(ofSize: 16)
     }
     private let leftShiftButton = UIButton().then {
-        $0.setBackgroundImage(UIImage(named: ""), for: .normal)
-        $0.backgroundColor = .systemGray2
+        $0.setBackgroundImage(UIImage(named: "shift-right"), for: .normal)
+
     }
     
     // MARK: - LifeCycles
