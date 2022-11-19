@@ -209,4 +209,32 @@ MyPooDiary
 </details>
 
 
+<br>
+ 
+## ♨️ 구현 시 가장 어려웠던 방법
 
+<details>
+<summary>접기/펼치기</summary>
+
+<!-- summary 아래 한칸 공백 두어야함 -->
+## 그들의 스토리..
+
+- 깃 컨플릭트가 어려웠다. <br> 특히 에셋에 관련해서 자꾸 에러가 떠서 해결방법을 몰라 일단 develop에 제대로 되어있는 코드로< br> 클론을 다시 받아서 에셋을 다시 추가하는 방법으로 해결하였다.  <br> 뷰 연결 작업이 늦어져 서버 연결을 제대로 붙이지 못해서 아쉽다.
+
+</details>
+
+
+<br>
+
+## 🎥 시연 영상
+
+<details>
+<summary>접기/펼치기</summary>
+
+<!-- summary 아래 한칸 공백 두어야함 -->
+## 홈 뷰
+
+![Simulator Screen Recording - iPhone 13 mini - 2022-11-20 at 08 25 31](https://user-images.githubusercontent.com/80062632/202875491-ab241ad7-9387-4aee-80ee-7a0ea410724f.gif)
+
+
+</details>
