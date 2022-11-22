@@ -8,10 +8,10 @@
 import UIKit
 
 enum FontName: String {
-    case pretendardBold = "Pretendard-Bold"
-    case pretendardMedium = "Pretendard-Medium"
-    case pretendardRegular = "Pretendard-Regular"
-    case pretendardSemiBold = "Pretendard-SemiBold"
+    case ASDGNeoBold = "AppleSDGothicNeoB"
+    case ASDGNeoMedium = "AppleSDGothicNeoM"
+    case ASDGNeoRegular = "AppleSDGothicNeoR"
+    case ASDGNeoSemiBold = "AppleSDGothicNeoSB"
 }
 
 extension UIFont {
