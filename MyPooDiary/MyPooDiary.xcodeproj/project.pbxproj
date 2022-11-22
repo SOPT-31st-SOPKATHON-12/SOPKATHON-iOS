@@ -128,7 +128,6 @@
 		8EE680372929262E00D71B64 /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				8EE680462929276100D71B64 /* Extension */,
 				8EE680452929275C00D71B64 /* Supports */,
 				8EE680442929275800D71B64 /* Literals */,
 				8EE680432929275400D71B64 /* Utils */,
@@ -181,13 +180,6 @@
 				8EE68024292925CA00D71B64 /* SceneDelegate.swift */,
 			);
 			path = Supports;
-			sourceTree = "<group>";
-		};
-		8EE680462929276100D71B64 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		8EE680472929276F00D71B64 /* Main */ = {
