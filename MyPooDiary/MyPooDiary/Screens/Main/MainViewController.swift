@@ -118,7 +118,6 @@ final class MainViewController: UIViewController {
         
         register()
         setLayout()
-//        getRecordAPI()
     }
     
     // MARK: - Functions
@@ -295,28 +294,3 @@ extension MainViewController: UICollectionViewDataSource {
 }
 
 // MARK: - Network
-
-extension MainViewController {
-    func getRecordAPI() {
-        recordProvider.request(.getRecord) { response in
-            switch response {
-            case .success(let result):
-                let status = result.statusCode
-                if status >= 200 && status < 300 {
-                    do {
-                        self.collectionView.reloadData()
-                    }
-                    catch(let error) {
-                        print(error.localizedDescription)
-                    }
-                }
-                if status >= 400 {
-                    print("400 error")
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-}
-

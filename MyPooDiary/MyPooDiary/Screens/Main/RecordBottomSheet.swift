@@ -10,9 +10,13 @@ import UIKit
 import SnapKit
 import Then
 
+import Moya
+
 final class RecordBottomSheet: UIViewController {
     
     // MARK: - Properties
+    let recordProvider = MoyaProvider<RecordRouter>(
+    plugins: [NetworkLoggerPlugin(verbose: true)])
     
     var likesBtnArray = [UIButton]()
 
@@ -68,6 +72,14 @@ final class RecordBottomSheet: UIViewController {
     
     // MARK: - Functions
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        if let touch = touches.first,
+           touch.view == self.view {
+            hideBottomSheetWithAnimation()
+        }
+    }
+    
     private func setLayout() {
         view.backgroundColor = .black.withAlphaComponent(0.5)
         
@@ -110,6 +122,17 @@ final class RecordBottomSheet: UIViewController {
         }
     }
     
+    func hideBottomSheetWithAnimation() {
+        UIView.animate(withDuration: 0.3) {
+            self.containerView.snp.updateConstraints { make in
+                make.height.equalTo(0)
+            }
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.dismiss(animated: false)
+        }
+    }
+    
     // MARK: - @objc Function
     
     @objc
@@ -120,25 +143,48 @@ final class RecordBottomSheet: UIViewController {
             likeButton.isSelected = true
             dislikeButton.isSelected = false
             
-            let mainViewController = MainViewController()
-            mainViewController.modalPresentationStyle = .fullScreen
-            mainViewController.modalTransitionStyle = .crossDissolve
-
-            self.showToast(message: "등록되었습니다")
-            
-            DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-                self.present(mainViewController, animated: true)
-            }
+            let requstDto = RecordRequestDto(1, true, color: nil, strength: nil)
+            fetchRecordAPI(param: requstDto)
         } else {
             likeButton.isSelected = false
             dislikeButton.isSelected = true
             
             DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-                
                 let detailVC = RecordDetailBottomSheet()
                 detailVC.modalPresentationStyle = .fullScreen
                 detailVC.modalTransitionStyle = .crossDissolve
                 self.present(detailVC, animated: true, completion: nil)
+            }
+        }
+    }
+}
+
+// MARK: - Network
+
+extension RecordBottomSheet {
+    
+    func fetchRecordAPI(param: RecordRequestDto){
+        recordProvider.request(.fetchRecord(param: param)) { response in
+            switch response {
+            case .success(let result):
+                let status = result.statusCode
+                if status >= 200 && status < 300 {
+                    self.showToast(message: "마이푸가 등록되었어요")
+                    
+                    let mainViewController = MainViewController()
+                    mainViewController.modalPresentationStyle = .fullScreen
+                    mainViewController.modalTransitionStyle = .crossDissolve
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                        self.present(mainViewController, animated: true)
+                    }
+                } else if status >= 400 {
+                    self.showToast(message: "네트워크 오류가 발생했어요. 다시 시도해 주세요.")
+                    print("400 error")
+                }
+            case .failure(let error):
+                self.showToast(message: "네트워크 오류가 발생했어요. 다시 시도해 주세요.")
+                print(error.localizedDescription)
             }
         }
     }
