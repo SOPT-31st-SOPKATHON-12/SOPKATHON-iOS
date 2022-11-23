@@ -7,15 +7,17 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct ExampleResponseDto: Codable {
+// MARK: - RecordResponseDto
+
+struct RecordResponseDto: Codable {
     let status: Int
+    let success: Bool
     let message: String
-    let data: [Datum]
+    let data: DataClass
 }
 
-// MARK: - Datum
-struct Datum: Codable {
+// MARK: - DataClass
+struct DataClass: Codable {
     let recordID, user: Int
     let satisfy: Bool
     let color, strength, supportCnt: Int

@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 enum RecordRouter {
-    case getRecord
+    case fetchRecord(param: RecordRequestDto)
 }
 
 extension RecordRouter: TargetType {
@@ -20,28 +20,27 @@ extension RecordRouter: TargetType {
     
     var path: String {
         switch self {
-        case .getRecord:
+        case .fetchRecord:
             return "/record"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case.getRecord:
-            return .get
+        case .fetchRecord:
+            return .post
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .getRecord:
-            return .requestPlain
+        case .fetchRecord(let param):
+            return .requestJSONEncodable(param)
         }
     }
     
     var headers: [String : String]? {
         return ["Content-Type": "application/json"]
     }
-    
     
 }

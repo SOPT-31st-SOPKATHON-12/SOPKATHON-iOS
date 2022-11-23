@@ -7,12 +7,19 @@
 
 import UIKit
 
+import Moya
+
 final class RecordDetailBottomSheet: UIViewController {
     
     // MARK: - Properties
+    let recordProvider = MoyaProvider<RecordRouter>(
+    plugins: [NetworkLoggerPlugin(verbose: true)])
     
     lazy var colorBtnArray = [colorButton1, colorButton2, colorButton3, colorButton4, colorButton5]
     lazy var strengthBtnArray = [strengthButton1, strengthButton2, strengthButton3]
+    
+    private var selectedColor: Int = 0
+    private var selectedStrength: Int = 0
     
     // MARK: - UI
     
@@ -43,45 +50,15 @@ final class RecordDetailBottomSheet: UIViewController {
         $0.font = UIFont.font(.ASDGNeoBold, ofSize: 14)
     }
     
-    private lazy var colorButton1 = UIButton(type: .custom).then {
-        $0.setImage(UIImage(named: "color1")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        $0.setImage(UIImage(named: "color1-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
-    }
+    private lazy var colorButton1 = UIButton(type: .custom)
+    private lazy var colorButton2 = UIButton(type: .custom)
+    private lazy var colorButton3 = UIButton(type: .custom)
+    private lazy var colorButton4 = UIButton(type: .custom)
+    private lazy var colorButton5 = UIButton(type: .custom)
     
-    private lazy var colorButton2 = UIButton(type: .custom).then {
-        $0.setImage(UIImage(named: "color2")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        $0.setImage(UIImage(named: "color2-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
-    }
-    
-    private lazy var colorButton3 = UIButton(type: .custom).then {
-        $0.setImage(UIImage(named: "color3")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        $0.setImage(UIImage(named: "color3-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
-    }
-    
-    private lazy var colorButton4 = UIButton(type: .custom).then {
-        $0.setImage(UIImage(named: "color4")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        $0.setImage(UIImage(named: "color4-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
-    }
-    
-    private lazy var colorButton5 = UIButton(type: .custom).then {
-        $0.setImage(UIImage(named: "color5")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        $0.setImage(UIImage(named: "color5-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
-    }
-    
-    private lazy var strengthButton1 = UIButton(type: .custom).then {
-        $0.setImage(UIImage(named: "mdi_smiley-dead")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        $0.setImage(UIImage(named: "mdi_smiley-dead-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
-    }
-    
-    private lazy var strengthButton2 = UIButton(type: .custom).then {
-        $0.setImage(UIImage(named: "mdi_smiley-happy")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        $0.setImage(UIImage(named: "mdi_smiley-happy-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
-    }
-    
-    private lazy var strengthButton3 = UIButton(type: .custom).then {
-        $0.setImage(UIImage(named: "mdi_smiley-sad")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        $0.setImage(UIImage(named: "mdi_smiley-sad-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
-    }
+    private lazy var strengthButton1 = UIButton(type: .custom)
+    private lazy var strengthButton2 = UIButton(type: .custom)
+    private lazy var strengthButton3 = UIButton(type: .custom)
     
     private lazy var colorButtonStack = UIStackView(arrangedSubviews: [colorButton1, colorButton2, colorButton3, colorButton4, colorButton5])
         .then {
@@ -114,6 +91,14 @@ final class RecordDetailBottomSheet: UIViewController {
     }
     
     // MARK: - Functions
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        if let touch = touches.first,
+           touch.view == self.view {
+            hideBottomSheetWithAnimation()
+        }
+    }
 
     private func setLayout() {
         view.backgroundColor = .black.withAlphaComponent(0.5)
@@ -169,13 +154,47 @@ final class RecordDetailBottomSheet: UIViewController {
     }
     
     private func setButtonStacks() {
+        
+        colorBtnArray.enumerated().forEach { (index, item) in
+            item.tag = index + 1
+        }
+        
+        strengthBtnArray.enumerated().forEach { (index, item) in
+            item.tag = index + 1
+        }
+        
         [colorButton1, colorButton2, colorButton3, colorButton4, colorButton5].forEach {
             $0.addTarget(self, action: #selector(colorButtonDidTap(sender: )), for: .touchUpInside)
+            $0.setImage(UIImage(named: "color\($0.tag)")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            $0.setImage(UIImage(named: "color\($0.tag)-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
         }
         
         [strengthButton1, strengthButton2, strengthButton3].forEach {
             $0.addTarget(self, action: #selector(strengthButtonDidTap(sender: )), for: .touchUpInside)
+            $0.setImage(UIImage(named: "mdi_smiley-\($0.tag)")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            $0.setImage(UIImage(named: "mdi_smiley-\($0.tag)-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
         }
+    }
+    
+    private func hideBottomSheetWithAnimation() {
+        UIView.animate(withDuration: 0.3) {
+            self.containerView.snp.updateConstraints { make in
+                make.height.equalTo(0)
+            }
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            let mainViewController = MainViewController()
+            mainViewController.modalPresentationStyle = .fullScreen
+            mainViewController.modalTransitionStyle = .crossDissolve
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                self.present(mainViewController, animated: true)
+            }
+        }
+    }
+    
+    private func checkCompleteButtonState() {
+        completeButton.isEnabled = (selectedColor != 0 && selectedStrength != 0)
+        completeButton.backgroundColor = completeButton.isEnabled ? .myBlue : .myBlue.withAlphaComponent(0.5)
     }
     
     // MARK: - @objc Function
@@ -187,52 +206,62 @@ final class RecordDetailBottomSheet: UIViewController {
     
     @objc
     func colorButtonDidTap(sender: UIButton) {
-        
         sender.isSelected.toggle()
-        
         for btn in colorBtnArray {
             btn.isSelected = btn == sender ? true : false
-            // TODO: 코드 수정
-            if btn.isSelected && (strengthButton1.isSelected || strengthButton2.isSelected || strengthButton3.isSelected) {
-                completeButton.backgroundColor = .myBlue
-                completeButton.isSelected = true
-                completeButton.isEnabled = true
+            if btn.isSelected {
+                selectedColor = sender.tag
             }
         }
+        checkCompleteButtonState()
     }
     
     @objc
     func strengthButtonDidTap(sender: UIButton) {
-        
         sender.isSelected.toggle()
-
         for btn in strengthBtnArray {
             btn.isSelected = btn == sender ? true : false
-            // TODO: 코드 수정
-            if btn.isSelected && (colorButton1.isSelected || colorButton2.isSelected || colorButton3.isSelected || colorButton4.isSelected || colorButton5.isSelected) {
-                completeButton.backgroundColor = .myBlue
-                completeButton.isSelected = true
-                completeButton.isEnabled = true
+            if btn.isSelected {
+                selectedStrength = sender.tag
             }
         }
+        checkCompleteButtonState()
     }
     
     @objc
     func completeButtonDidTap() {
-        
-        // network
-        
-        let mainViewController = MainViewController()
-        mainViewController.modalPresentationStyle = .fullScreen
-        mainViewController.modalTransitionStyle = .crossDissolve
-
-        
-        self.showToast(message: "등록되었습니다")
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            self.present(mainViewController, animated: true)
-        }
+        let requstDto = RecordRequestDto(1, false, color: selectedColor, strength: selectedStrength)
+        fetchRecordAPI(param: requstDto)
     }
 }
 
+// MARK: - Network
 
+extension RecordDetailBottomSheet {
+    
+    func fetchRecordAPI(param: RecordRequestDto){
+        recordProvider.request(.fetchRecord(param: param)) { response in
+            switch response {
+            case .success(let result):
+                let status = result.statusCode
+                if status >= 200 && status < 300 {
+                    self.showToast(message: "마이푸가 등록되었어요")
+                    
+                    let mainViewController = MainViewController()
+                    mainViewController.modalPresentationStyle = .fullScreen
+                    mainViewController.modalTransitionStyle = .crossDissolve
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                        self.present(mainViewController, animated: true)
+                    }
+                } else if status >= 400 {
+                    self.showToast(message: "네트워크 오류가 발생했어요. 다시 시도해 주세요.")
+                    print("400 error")                    
+                }
+            case .failure(let error):
+                self.showToast(message: "네트워크 오류가 발생했어요. 다시 시도해 주세요.")
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
