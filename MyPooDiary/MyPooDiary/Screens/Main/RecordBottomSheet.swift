@@ -23,9 +23,10 @@ final class RecordBottomSheet: UIViewController {
     }
     
     private let titleLabel = UILabel().then {
-        let attributedString = NSMutableAttributedString(string: "변", attributes: [.font: UIFont.systemFont(ofSize: 18, weight: .bold)])
+        let attributedString = NSMutableAttributedString(string: "변", attributes: [.font: UIFont.font(.ASDGNeoBold, ofSize: 18)])
         attributedString.append(NSAttributedString(string: "했나요?",
-                                                   attributes: [.font: UIFont.systemFont(ofSize: 16, weight: .regular)]))
+                                                   attributes: [.font: UIFont.font(.ASDGNeoRegular, ofSize: 18)]))
+        $0.textColor = .myBlack
         $0.attributedText = attributedString
     }
     
@@ -34,9 +35,10 @@ final class RecordBottomSheet: UIViewController {
         $0.setImage(UIImage(named: "bxs_like-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
     }
     
-    private lazy var likeLabel = UILabel().then {
+    private let likeLabel = UILabel().then {
         $0.text = "네, 만족해요"
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        $0.textColor = .myBlack
+        $0.font = UIFont.font(.ASDGNeoSemiBold, ofSize: 14)
     }
     
     private lazy var dislikeButton = UIButton(type: .custom).then {
@@ -44,9 +46,10 @@ final class RecordBottomSheet: UIViewController {
         $0.setImage(UIImage(named: "bxs_dislike-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
     }
     
-    private lazy var dislikeLabel = UILabel().then {
+    private let dislikeLabel = UILabel().then {
         $0.text = "아니요, 불만족해요"
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        $0.textColor = .myBlack
+        $0.font = UIFont.font(.ASDGNeoSemiBold, ofSize: 14)
     }
     
     private lazy var likesButtonStack = UIStackView(arrangedSubviews: [likeButton, dislikeButton]).then {

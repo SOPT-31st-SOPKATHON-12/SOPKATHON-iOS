@@ -27,17 +27,20 @@ final class RecordDetailBottomSheet: UIViewController {
     
     private let titleLabel = UILabel().then {
         $0.text = "왜 불만족했나요?"
-        $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        $0.textColor = .myBlack
+        $0.font = UIFont.font(.ASDGNeoRegular, ofSize: 18)
     }
     
     private lazy var colorLabel = UILabel().then {
         $0.text = "색깔"
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        $0.textColor = .myBlack
+        $0.font = UIFont.font(.ASDGNeoBold, ofSize: 14)
     }
     
     private lazy var strengthLabel = UILabel().then {
         $0.text = "강도"
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        $0.textColor = .myBlack
+        $0.font = UIFont.font(.ASDGNeoBold, ofSize: 14)
     }
     
     private lazy var colorButton1 = UIButton(type: .custom).then {
@@ -47,19 +50,23 @@ final class RecordDetailBottomSheet: UIViewController {
     
     private lazy var colorButton2 = UIButton(type: .custom).then {
         $0.setImage(UIImage(named: "color2")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        $0.setImage(UIImage(named: "color2-click")?.withRenderingMode(.alwaysOriginal), for: .selected)    }
+        $0.setImage(UIImage(named: "color2-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
+    }
     
     private lazy var colorButton3 = UIButton(type: .custom).then {
         $0.setImage(UIImage(named: "color3")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        $0.setImage(UIImage(named: "color3-click")?.withRenderingMode(.alwaysOriginal), for: .selected)    }
+        $0.setImage(UIImage(named: "color3-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
+    }
     
     private lazy var colorButton4 = UIButton(type: .custom).then {
         $0.setImage(UIImage(named: "color4")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        $0.setImage(UIImage(named: "color4-click")?.withRenderingMode(.alwaysOriginal), for: .selected)    }
+        $0.setImage(UIImage(named: "color4-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
+    }
     
     private lazy var colorButton5 = UIButton(type: .custom).then {
         $0.setImage(UIImage(named: "color5")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        $0.setImage(UIImage(named: "color5-click")?.withRenderingMode(.alwaysOriginal), for: .selected)    }
+        $0.setImage(UIImage(named: "color5-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
+    }
     
     private lazy var strengthButton1 = UIButton(type: .custom).then {
         $0.setImage(UIImage(named: "mdi_smiley-dead")?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -91,7 +98,7 @@ final class RecordDetailBottomSheet: UIViewController {
         }
     
     private lazy var completeButton = UIButton(type: .custom).then {
-        $0.setAttributedTitle(NSAttributedString(string: "완료", attributes: [.font: UIFont.systemFont(ofSize: 16, weight: .bold), .foregroundColor: UIColor.white]), for: .normal)
+        $0.setAttributedTitle(NSAttributedString(string: "완료", attributes: [.font: UIFont.font(.ASDGNeoBold, ofSize: 16), .foregroundColor: UIColor.white]), for: .normal)
         $0.backgroundColor = .myBlue.withAlphaComponent(0.5)
         $0.layer.cornerRadius = 14
         $0.isEnabled = false
