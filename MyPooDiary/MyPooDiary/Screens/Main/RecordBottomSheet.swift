@@ -12,51 +12,71 @@ import Then
 
 final class RecordBottomSheet: UIViewController {
     
+    // MARK: - Properties
+    
+    var likesBtnArray = [UIButton]()
+
+    // MARK: - UI
+
     private let containerView = UIView().then {
         $0.layer.cornerRadius = 30
     }
     
     private let titleLabel = UILabel().then {
-        let attributedString = NSMutableAttributedString(string: "변", attributes: [.font: UIFont.systemFont(ofSize: 18, weight: .bold)])
+        let attributedString = NSMutableAttributedString(string: "변", attributes: [.font: UIFont.font(.ASDGNeoBold, ofSize: 18)])
         attributedString.append(NSAttributedString(string: "했나요?",
-                                                   attributes: [.font: UIFont.systemFont(ofSize: 16, weight: .regular)]))
+                                                   attributes: [.font: UIFont.font(.ASDGNeoRegular, ofSize: 18)]))
+        $0.textColor = .myBlack
         $0.attributedText = attributedString
     }
     
     private lazy var likeButton = UIButton(type: .custom).then {
         $0.setImage(UIImage(named: "bxs_like")?.withRenderingMode(.alwaysOriginal), for: .normal)
         $0.setImage(UIImage(named: "bxs_like-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
-        $0.addTarget(self, action: #selector(likeButtonDidTap), for: .touchUpInside)
     }
     
-    private lazy var likeLabel = UILabel().then {
+    private let likeLabel = UILabel().then {
         $0.text = "네, 만족해요"
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        $0.textColor = .myBlack
+        $0.font = UIFont.font(.ASDGNeoSemiBold, ofSize: 14)
     }
     
     private lazy var dislikeButton = UIButton(type: .custom).then {
         $0.setImage(UIImage(named: "bxs_dislike")?.withRenderingMode(.alwaysOriginal), for: .normal)
         $0.setImage(UIImage(named: "bxs_dislike-click")?.withRenderingMode(.alwaysOriginal), for: .selected)
-        $0.addTarget(self, action: #selector(dislikeButtonDidTap), for: .touchUpInside)
     }
     
-    private lazy var dislikeLabel = UILabel().then {
+    private let dislikeLabel = UILabel().then {
         $0.text = "아니요, 불만족해요"
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        $0.textColor = .myBlack
+        $0.font = UIFont.font(.ASDGNeoSemiBold, ofSize: 14)
     }
+    
+    private lazy var likesButtonStack = UIStackView(arrangedSubviews: [likeButton, dislikeButton]).then {
+        $0.axis = .horizontal
+        $0.spacing = 110
+        $0.distribution = .fillEqually
+    }
+    
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
-        view.backgroundColor = UIColor(hex: "767676")
+        setButtonStacks()
     }
     
+    // MARK: - Functions
+    
     private func setLayout() {
+        view.backgroundColor = .black.withAlphaComponent(0.5)
+        
         view.addSubview(containerView)
-        containerView.addSubviews(titleLabel, likeButton, likeLabel, dislikeButton, dislikeLabel)
+        containerView.addSubviews(titleLabel, likesButtonStack, likeLabel, dislikeLabel)
         
         containerView.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalToSuperview()
             make.height.equalTo(320)
         }
         
@@ -67,10 +87,9 @@ final class RecordBottomSheet: UIViewController {
             make.centerX.equalToSuperview()
         }
         
-        likeButton.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(80)
-            make.leading.equalToSuperview().offset(80)
-            make.width.height.equalTo(50)
+        likesButtonStack.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(70)
+            make.leading.trailing.equalToSuperview().inset(70)
         }
         
         likeLabel.snp.makeConstraints { make in
@@ -78,41 +97,49 @@ final class RecordBottomSheet: UIViewController {
             make.centerX.equalTo(likeButton)
         }
         
-        dislikeButton.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(80)
-            make.trailing.equalToSuperview().inset(80)
-            make.width.height.equalTo(50)
-        }
-        
         dislikeLabel.snp.makeConstraints { make in
             make.top.equalTo(dislikeButton.snp.bottom).offset(30)
             make.centerX.equalTo(dislikeButton)
         }
         
-
     }
     
-    @objc
-    func likeButtonDidTap(_ sender: Any) {
-        likeButton.isSelected.toggle()
-        likeButton.isUserInteractionEnabled = false
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-            //network
-            self.dismiss(animated: true)
+    private func setButtonStacks() {
+        [likeButton, dislikeButton].forEach {
+            $0.addTarget(self, action: #selector(likesButtonDidTap), for: .touchUpInside)
         }
     }
     
+    // MARK: - @objc Function
+    
     @objc
-    func dislikeButtonDidTap(_ sender: Any) {
+    func likesButtonDidTap(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        
+        if sender == likeButton {
+            likeButton.isSelected = true
+            dislikeButton.isSelected = false
+            
+            let mainViewController = MainViewController()
+            mainViewController.modalPresentationStyle = .fullScreen
+            mainViewController.modalTransitionStyle = .crossDissolve
 
-        self.dislikeButton.isSelected.toggle()
-        self.dislikeButton.isUserInteractionEnabled = false
-
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-
-            let detailVC = RecordDetailBottomSheet()
-            detailVC.modalPresentationStyle = .fullScreen
-            self.present(detailVC, animated: true, completion: nil)
+            self.showToast(message: "등록되었습니다")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                self.present(mainViewController, animated: true)
+            }
+        } else {
+            likeButton.isSelected = false
+            dislikeButton.isSelected = true
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                
+                let detailVC = RecordDetailBottomSheet()
+                detailVC.modalPresentationStyle = .fullScreen
+                detailVC.modalTransitionStyle = .crossDissolve
+                self.present(detailVC, animated: true, completion: nil)
+            }
         }
     }
 }

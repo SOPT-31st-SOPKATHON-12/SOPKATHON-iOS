@@ -38,6 +38,7 @@
 		8EE680692929525300D71B64 /* RecordBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE680682929525300D71B64 /* RecordBottomSheet.swift */; };
 		8EE6806B292952A100D71B64 /* RecordDetailBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6806A292952A100D71B64 /* RecordDetailBottomSheet.swift */; };
 		8EE680712929756000D71B64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EE680702929756000D71B64 /* Assets.xcassets */; };
+		8EF1F74E292D1C9300338342 /* showToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1F74D292D1C9300338342 /* showToast.swift */; };
 		B8D2D89B29299A58005F930D /* FriendListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2D89A29299A58005F930D /* FriendListModel.swift */; };
 		B8D2D89D29299A85005F930D /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2D89C29299A85005F930D /* FriendListViewController.swift */; };
 		B8D2D89F29299A9C005F930D /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2D89E29299A9C005F930D /* FriendTableViewCell.swift */; };
@@ -80,6 +81,7 @@
 		8EE680682929525300D71B64 /* RecordBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBottomSheet.swift; sourceTree = "<group>"; };
 		8EE6806A292952A100D71B64 /* RecordDetailBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailBottomSheet.swift; sourceTree = "<group>"; };
 		8EE680702929756000D71B64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8EF1F74D292D1C9300338342 /* showToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showToast.swift; sourceTree = "<group>"; };
 		B8D2D89A29299A58005F930D /* FriendListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListModel.swift; sourceTree = "<group>"; };
 		B8D2D89C29299A85005F930D /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		B8D2D89E29299A9C005F930D /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
@@ -119,6 +121,14 @@
 				8EB6B6D8292CFC63002A33ED /* AppleSDGothicNeoUL.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8EB6B6EA292D1C58002A33ED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8EF1F74D292D1C9300338342 /* showToast.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8EE68016292925CA00D71B64 = {
@@ -162,6 +172,7 @@
 		8EE680372929262E00D71B64 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				8EB6B6EA292D1C58002A33ED /* Extensions */,
 				8EE680452929275C00D71B64 /* Supports */,
 				8EE680442929275800D71B64 /* Literals */,
 				8EE680432929275400D71B64 /* Utils */,
@@ -412,6 +423,7 @@
 				8EE6804B2929279A00D71B64 /* getClassName.swift in Sources */,
 				B8D2D89F29299A9C005F930D /* FriendTableViewCell.swift in Sources */,
 				8EE68025292925CA00D71B64 /* SceneDelegate.swift in Sources */,
+				8EF1F74E292D1C9300338342 /* showToast.swift in Sources */,
 				B8D2D89B29299A58005F930D /* FriendListModel.swift in Sources */,
 				D60B32A7292964FD00D9A277 /* FriendCollectionViewCell.swift in Sources */,
 				1476594C29299D0B008C68C6 /* ReportModel.swift in Sources */,

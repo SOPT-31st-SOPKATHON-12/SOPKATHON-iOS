@@ -77,7 +77,10 @@ final class ReportViewController: UIViewController {
     
     
     // MARK: - @objc Function
-    
+    @objc
+    private func touchUpBackButton() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 // MARK: - Extensions

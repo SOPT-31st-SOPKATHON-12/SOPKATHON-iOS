@@ -289,7 +289,7 @@ extension MainViewController: UICollectionViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recordVC = RecordBottomSheet()
-        recordVC.modalPresentationStyle = .fullScreen
+        recordVC.modalPresentationStyle = .overFullScreen
         self.present(recordVC, animated: true, completion: nil)
     }
 }
