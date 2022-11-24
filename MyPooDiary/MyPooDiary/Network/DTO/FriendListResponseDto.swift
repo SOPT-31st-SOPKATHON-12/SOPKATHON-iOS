@@ -18,4 +18,9 @@ struct FriendListResponseDto: Codable {
 struct FriendListResponseData: Codable {
     let name: String
     let isSupported: Bool
+    
+    
+    func convertToFriendListModel() -> FriendListModel {
+        return FriendListModel(friendImage: "friend", name: self.name)
+    }
 }

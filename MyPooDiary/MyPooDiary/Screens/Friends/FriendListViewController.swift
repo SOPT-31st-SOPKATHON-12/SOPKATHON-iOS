@@ -15,6 +15,8 @@ import Moya
 final class FriendListViewController: UIViewController {
 
     // MARK: - Properties
+    let friendListProvider = MoyaProvider<FriendListRouter>(plugins: [NetworkLoggerPlugin(verbose: true)])
+    
     var friendList: [FriendListModel] = [
         FriendListModel(friendImage: "icon_profile", name: "이길동"),
         FriendListModel(friendImage: "icon_profile", name: "노한솔"),
@@ -134,5 +136,29 @@ extension FriendListViewController: UITableViewDataSource {
     }
 }
     
-    // MARK: - Network
+// MARK: - Network
 
+extension FriendListViewController {
+    private func getFriendList(param: FriendListResponseDto) {
+        friendListProvider.request(.fetchFriendList(param: param)) { response in
+            switch response {
+            case .success(let result):
+                let status = result.statusCode
+                if status >= 200 && status < 300 {
+                    do {
+                        let response = try result.map(FriendListResponseDto.self)
+                        for dto in response.data {
+                            self.friendList.append(dto.convertToFriendListModel())
+                        }
+                        self.friendsTableView.reloadData()
+                    } catch(let err){
+                        print("서버 오류")
+                        print(err.localizedDescription, 500)
+                    }
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
