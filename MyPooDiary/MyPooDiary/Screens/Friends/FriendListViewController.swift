@@ -144,6 +144,7 @@ extension FriendListViewController: UITableViewDataSource {
 
 extension FriendListViewController {
     private func getFriendList() {
+        friendList = []
         friendListProvider.request(.fetchFriendList) { response in
             switch response {
             case .success(let result):
