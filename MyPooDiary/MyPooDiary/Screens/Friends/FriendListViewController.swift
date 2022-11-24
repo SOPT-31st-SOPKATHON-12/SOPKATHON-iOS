@@ -137,6 +137,7 @@ extension FriendListViewController: UITableViewDataSource {
         let friendViewController = FriendViewController()
         friendViewController.modalPresentationStyle = .overFullScreen
         self.present(friendViewController, animated: true)
+        friendViewController.bindFriendIndex(index: indexPath.row)
     }
 }
     
