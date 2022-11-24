@@ -42,6 +42,7 @@
 		8EF1F750292E2CE600338342 /* RecordRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1F74F292E2CE600338342 /* RecordRequestDto.swift */; };
 		B8208B5A292F841800A5DE08 /* FriendListResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8208B59292F841800A5DE08 /* FriendListResponseDto.swift */; };
 		B8208B5C292F84C300A5DE08 /* FriendListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8208B5B292F84C300A5DE08 /* FriendListRouter.swift */; };
+		B8208B5E292FCBD200A5DE08 /* FriendStoryResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8208B5D292FCBD200A5DE08 /* FriendStoryResponseDto.swift */; };
 		B8D2D89B29299A58005F930D /* FriendListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2D89A29299A58005F930D /* FriendListModel.swift */; };
 		B8D2D89D29299A85005F930D /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2D89C29299A85005F930D /* FriendListViewController.swift */; };
 		B8D2D89F29299A9C005F930D /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2D89E29299A9C005F930D /* FriendTableViewCell.swift */; };
@@ -88,6 +89,7 @@
 		8EF1F74F292E2CE600338342 /* RecordRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRequestDto.swift; sourceTree = "<group>"; };
 		B8208B59292F841800A5DE08 /* FriendListResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListResponseDto.swift; sourceTree = "<group>"; };
 		B8208B5B292F84C300A5DE08 /* FriendListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListRouter.swift; sourceTree = "<group>"; };
+		B8208B5D292FCBD200A5DE08 /* FriendStoryResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendStoryResponseDto.swift; sourceTree = "<group>"; };
 		B8D2D89A29299A58005F930D /* FriendListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListModel.swift; sourceTree = "<group>"; };
 		B8D2D89C29299A85005F930D /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		B8D2D89E29299A9C005F930D /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				8EF1F74F292E2CE600338342 /* RecordRequestDto.swift */,
 				8EE6805F292933C000D71B64 /* RecordResponseDto.swift */,
 				B8208B59292F841800A5DE08 /* FriendListResponseDto.swift */,
+				B8208B5D292FCBD200A5DE08 /* FriendStoryResponseDto.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				8EE68027292925CA00D71B64 /* MainViewController.swift in Sources */,
 				8EE6806B292952A100D71B64 /* RecordDetailBottomSheet.swift in Sources */,
 				D60B32A32929408400D9A277 /* RecordModel.swift in Sources */,
+				B8208B5E292FCBD200A5DE08 /* FriendStoryResponseDto.swift in Sources */,
 				B8D2D8A329299ADA005F930D /* StoryViewController.swift in Sources */,
 				D60B32A0292939D500D9A277 /* RecordTableViewCell.swift in Sources */,
 				8EE6804F292927F600D71B64 /* ColorLiterals.swift in Sources */,
