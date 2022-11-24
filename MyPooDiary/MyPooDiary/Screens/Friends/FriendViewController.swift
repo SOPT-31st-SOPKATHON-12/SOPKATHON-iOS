@@ -15,7 +15,7 @@ import Moya
 final class FriendViewController: UIViewController {
 
     // MARK: - Properties
-    let friendListProvider = MoyaProvider<FriendListRouter>(plugins: [NetworkLoggerPlugin(verbose: true)])
+    let friendListProvider = MoyaProvider<FriendsRouter>(plugins: [NetworkLoggerPlugin(verbose: true)])
     var friendIndex: Int = 0
     
     // MARK: - UI

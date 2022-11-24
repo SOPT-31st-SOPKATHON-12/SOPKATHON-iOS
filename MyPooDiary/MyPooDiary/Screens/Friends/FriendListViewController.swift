@@ -15,7 +15,7 @@ import Moya
 final class FriendListViewController: UIViewController {
 
     // MARK: - Properties
-    let friendListProvider = MoyaProvider<FriendListRouter>(plugins: [NetworkLoggerPlugin(verbose: true)])
+    let friendListProvider = MoyaProvider<FriendsRouter>(plugins: [NetworkLoggerPlugin(verbose: true)])
     
     var friendList: [FriendListModel] = [
         FriendListModel(friendImage: "friend", name: "이길동"),
