@@ -18,18 +18,18 @@ final class FriendListViewController: UIViewController {
     let friendListProvider = MoyaProvider<FriendListRouter>(plugins: [NetworkLoggerPlugin(verbose: true)])
     
     var friendList: [FriendListModel] = [
-        FriendListModel(friendImage: "icon_profile", name: "이길동"),
-        FriendListModel(friendImage: "icon_profile", name: "노한솔"),
-        FriendListModel(friendImage: "icon_profile", name: "박의서"),
-        FriendListModel(friendImage: "icon_profile", name: "김유빈"),
-        FriendListModel(friendImage: "icon_profile", name: "이승헌"),
-        FriendListModel(friendImage: "icon_profile", name: "김은수"),
-        FriendListModel(friendImage: "icon_profile", name: "윤수빈"),
-        FriendListModel(friendImage: "icon_profile", name: "김인영"),
-        FriendListModel(friendImage: "icon_profile", name: "이화정"),
-        FriendListModel(friendImage: "icon_profile", name: "전희선"),
-        FriendListModel(friendImage: "icon_profile", name: "손혜정"),
-        FriendListModel(friendImage: "icon_profile", name: "박서원")
+        FriendListModel(friendImage: "friend", name: "이길동"),
+        FriendListModel(friendImage: "friend", name: "노한솔"),
+        FriendListModel(friendImage: "friend", name: "박의서"),
+        FriendListModel(friendImage: "friend", name: "김유빈"),
+        FriendListModel(friendImage: "friend", name: "이승헌"),
+        FriendListModel(friendImage: "friend", name: "김은수"),
+        FriendListModel(friendImage: "friend", name: "윤수빈"),
+        FriendListModel(friendImage: "friend", name: "김인영"),
+        FriendListModel(friendImage: "friend", name: "이화정"),
+        FriendListModel(friendImage: "friend", name: "전희선"),
+        FriendListModel(friendImage: "friend", name: "손혜정"),
+        FriendListModel(friendImage: "friend", name: "박서원")
     ]
     
     // MARK: - UI
