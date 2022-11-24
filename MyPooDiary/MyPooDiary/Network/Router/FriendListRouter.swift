@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 enum FriendListRouter {
-    case fetchFriendList(param: FriendListResponseDto)
+    case fetchFriendList
 }
 
 extension FriendListRouter: TargetType {
@@ -34,8 +34,8 @@ extension FriendListRouter: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .fetchFriendList(let param):
-            return .requestJSONEncodable(param)
+        case .fetchFriendList:
+            return .requestPlain
         }
     }
     

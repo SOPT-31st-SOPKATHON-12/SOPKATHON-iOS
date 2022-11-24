@@ -53,6 +53,10 @@ final class FriendListViewController: UIViewController {
         setLayout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getFriendList()
+    }
+    
     // MARK: - Functions
 
     // MARK: - @objc Function
@@ -139,8 +143,8 @@ extension FriendListViewController: UITableViewDataSource {
 // MARK: - Network
 
 extension FriendListViewController {
-    private func getFriendList(param: FriendListResponseDto) {
-        friendListProvider.request(.fetchFriendList(param: param)) { response in
+    private func getFriendList() {
+        friendListProvider.request(.fetchFriendList) { response in
             switch response {
             case .success(let result):
                 let status = result.statusCode
