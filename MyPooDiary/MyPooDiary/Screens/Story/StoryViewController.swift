@@ -25,7 +25,7 @@ final class StoryViewController: UIViewController {
         $0.addTarget(self, action: #selector(touchUpCheeringButton), for: .touchUpInside)
     }
     
-    private lazy var backButton = makeButton("white-back-button").then {
+    private lazy var backButton = makeButton("Expand_left").then {
         $0.addTarget(self, action: #selector(touchUpBackButton), for: .touchUpInside)
     }
     private var didPooLabel = UILabel().then {

@@ -15,19 +15,21 @@ import Moya
 final class FriendListViewController: UIViewController {
 
     // MARK: - Properties
+    let friendListProvider = MoyaProvider<FriendsRouter>(plugins: [NetworkLoggerPlugin(verbose: true)])
+    
     var friendList: [FriendListModel] = [
-        FriendListModel(friendImage: "icon_profile", name: "이길동"),
-        FriendListModel(friendImage: "icon_profile", name: "노한솔"),
-        FriendListModel(friendImage: "icon_profile", name: "박의서"),
-        FriendListModel(friendImage: "icon_profile", name: "김유빈"),
-        FriendListModel(friendImage: "icon_profile", name: "이승헌"),
-        FriendListModel(friendImage: "icon_profile", name: "김은수"),
-        FriendListModel(friendImage: "icon_profile", name: "윤수빈"),
-        FriendListModel(friendImage: "icon_profile", name: "김인영"),
-        FriendListModel(friendImage: "icon_profile", name: "이화정"),
-        FriendListModel(friendImage: "icon_profile", name: "전희선"),
-        FriendListModel(friendImage: "icon_profile", name: "손혜정"),
-        FriendListModel(friendImage: "icon_profile", name: "박서원")
+        FriendListModel(friendImage: "friend", name: "이길동"),
+        FriendListModel(friendImage: "friend", name: "노한솔"),
+        FriendListModel(friendImage: "friend", name: "박의서"),
+        FriendListModel(friendImage: "friend", name: "김유빈"),
+        FriendListModel(friendImage: "friend", name: "이승헌"),
+        FriendListModel(friendImage: "friend", name: "김은수"),
+        FriendListModel(friendImage: "friend", name: "윤수빈"),
+        FriendListModel(friendImage: "friend", name: "김인영"),
+        FriendListModel(friendImage: "friend", name: "이화정"),
+        FriendListModel(friendImage: "friend", name: "전희선"),
+        FriendListModel(friendImage: "friend", name: "손혜정"),
+        FriendListModel(friendImage: "friend", name: "박서원")
     ]
     
     // MARK: - UI
@@ -49,6 +51,10 @@ final class FriendListViewController: UIViewController {
         super.viewDidLoad()
         register()
         setLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getFriendList()
     }
     
     // MARK: - Functions
@@ -131,8 +137,34 @@ extension FriendListViewController: UITableViewDataSource {
         let friendViewController = FriendViewController()
         friendViewController.modalPresentationStyle = .overFullScreen
         self.present(friendViewController, animated: true)
+        friendViewController.bindFriendIndex(index: indexPath.row)
     }
 }
     
-    // MARK: - Network
+// MARK: - Network
 
+extension FriendListViewController {
+    private func getFriendList() {
+        friendList = []
+        friendListProvider.request(.fetchFriendList) { response in
+            switch response {
+            case .success(let result):
+                let status = result.statusCode
+                if status >= 200 && status < 300 {
+                    do {
+                        let response = try result.map(FriendListResponseDto.self)
+                        for dto in response.data {
+                            self.friendList.append(dto.convertToFriendListModel())
+                        }
+                        self.friendsTableView.reloadData()
+                    } catch(let err){
+                        print("서버 오류")
+                        print(err.localizedDescription, 500)
+                    }
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}

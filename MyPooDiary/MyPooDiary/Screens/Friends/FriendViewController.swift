@@ -15,6 +15,8 @@ import Moya
 final class FriendViewController: UIViewController {
 
     // MARK: - Properties
+    let friendListProvider = MoyaProvider<FriendsRouter>(plugins: [NetworkLoggerPlugin(verbose: true)])
+    var friendIndex: Int = 0
     
     // MARK: - UI
     private let topBar =  UIView()
@@ -43,7 +45,7 @@ final class FriendViewController: UIViewController {
         $0.text = "이길동님의 변기록이에요"
         $0.font = .systemFont(ofSize: 20, weight: .bold)
     }
-    private lazy var userProfilesImage = makeImageView("userProfiles")
+    private lazy var userProfilesImage = makeImageView("user")
     private var cheeringLabel = UILabel().then {
         $0.text = "박서현님 외 12명이 응원하고 있어요!"
         $0.font = .systemFont(ofSize: 16)
@@ -68,6 +70,7 @@ final class FriendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
+        getFriendList()
     }
     
     // MARK: - Functions
@@ -167,6 +170,15 @@ extension FriendViewController {
         return imageView
     }
     
+    func bindFriendIndex(index: Int) {
+        friendIndex = index
+    }
+    
+    private func bindStoryName(name: String) {
+        infoLabel.text = "\(name)님의 변기록이에요"
+        cheeringBottomLabel.text = "아직 \(name)님이 변하지 않았어요. 힘주기로 응원해보세요!"
+    }
+    
     // MARK: - @objc Function
     @objc
     private func touchUpCheeringButton() {
@@ -178,6 +190,7 @@ extension FriendViewController {
 
 }
 
+// MARK: - Shadowing CALayer Extension
 extension CALayer {
     func applySketchShadow(
         color: UIColor = .black,
@@ -203,3 +216,26 @@ extension CALayer {
 }
 
 // MARK: - Network
+
+extension FriendViewController {
+    private func getFriendList() {
+        friendListProvider.request(.fetchFriendList) { response in
+            switch response {
+            case .success(let result):
+                let status = result.statusCode
+                if status >= 200 && status < 300 {
+                    do {
+                        let response = try result.map(FriendListResponseDto.self)
+                        let dto = response.data[self.friendIndex]
+                        self.bindStoryName(name: dto.name)
+                    } catch(let err){
+                        print("서버 오류")
+                        print(err.localizedDescription, 500)
+                    }
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
