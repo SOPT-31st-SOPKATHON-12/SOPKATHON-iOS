@@ -1,5 +1,5 @@
 //
-//  FriendListRouter.swift
+//  FriendsRouter.swift
 //  MyPooDiary
 //
 //  Created by 박의서 on 2022/11/24.
@@ -9,11 +9,11 @@
 import Foundation
 import Moya
 
-enum FriendListRouter {
+enum FriendsRouter {
     case fetchFriendList
 }
 
-extension FriendListRouter: TargetType {
+extension FriendsRouter: TargetType {
     var baseURL: URL {
         return URL(string: APIConstants.baseURL)!
     }
