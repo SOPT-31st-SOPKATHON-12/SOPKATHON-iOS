@@ -71,6 +71,7 @@ final class FriendViewController: UIViewController {
         super.viewDidLoad()
         setLayout()
         getFriendList()
+        getFriendStory()
     }
     
     // MARK: - Functions
@@ -170,6 +171,8 @@ extension FriendViewController {
         return imageView
     }
     
+    // MARK: - Data Binding
+    
     func bindFriendIndex(index: Int) {
         friendIndex = index
     }
@@ -177,6 +180,10 @@ extension FriendViewController {
     private func bindStoryName(name: String) {
         infoLabel.text = "\(name)님의 변기록이에요"
         cheeringBottomLabel.text = "아직 \(name)님이 변하지 않았어요. 힘주기로 응원해보세요!"
+    }
+    
+    private func bindStoryDate(date: String) {
+        pooTimeLabel.text = "\(date)"
     }
     
     // MARK: - @objc Function
@@ -219,7 +226,7 @@ extension CALayer {
 
 extension FriendViewController {
     private func getFriendList() {
-        friendListProvider.request(.fetchFriendList) { response in
+        friendsProvider.request(.fetchFriendList) { response in
             switch response {
             case .success(let result):
                 let status = result.statusCode
@@ -228,9 +235,30 @@ extension FriendViewController {
                         let response = try result.map(FriendListResponseDto.self)
                         let dto = response.data[self.friendIndex]
                         self.bindStoryName(name: dto.name)
-                    } catch(let err){
+                    } catch(let error){
                         print("서버 오류")
-                        print(err.localizedDescription, 500)
+                        print(error.localizedDescription, 500)
+                    }
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func getFriendStory() {
+        friendsProvider.request(.fetchFriendStory) { response in
+            switch response {
+            case .success(let result):
+                let status = result.statusCode
+                if status >= 200 && status < 300 {
+                    do {
+                        let response = try result.map(FriendStoryResponseDto.self)
+                        let dto = response.data
+                        self.bindStoryDate(date: dto.date)
+                    } catch(let error){
+                        print("서버 오류")
+                        print(error.localizedDescription, 500)
                     }
                 }
             case .failure(let error):
