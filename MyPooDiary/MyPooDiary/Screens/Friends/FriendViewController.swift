@@ -182,8 +182,16 @@ extension FriendViewController {
         cheeringBottomLabel.text = "아직 \(name)님이 변하지 않았어요. 힘주기로 응원해보세요!"
     }
     
-    private func bindStoryDate(date: String) {
-        pooTimeLabel.text = "\(date)"
+    private func bindStoryDate(dateString: String) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'hh':'mm':'ss'.'000Z"
+        let date =  dateFormatter.date(from: dateString)!
+        dateFormatter.amSymbol = "오전"
+        dateFormatter.pmSymbol = "오후"
+        dateFormatter.dateFormat = "a"
+        dateFormatter.dateFormat = "a hh:mm"
+        let newDate = dateFormatter.string(from: date)
+        pooTimeLabel.text = "\(newDate)"
     }
     
     // MARK: - @objc Function
@@ -255,7 +263,7 @@ extension FriendViewController {
                     do {
                         let response = try result.map(FriendStoryResponseDto.self)
                         let dto = response.data
-                        self.bindStoryDate(date: dto.date)
+                        self.bindStoryDate(dateString: dto.date)
                     } catch(let error){
                         print("서버 오류")
                         print(error.localizedDescription, 500)
