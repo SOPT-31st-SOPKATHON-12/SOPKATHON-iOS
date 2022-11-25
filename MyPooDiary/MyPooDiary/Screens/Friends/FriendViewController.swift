@@ -171,6 +171,19 @@ extension FriendViewController {
         return imageView
     }
     
+    private func changeImage(index: Int) {
+        switch index {
+        case 0:
+            pooImageView.image = UIImage(named: "img_good")
+        case 1:
+            pooImageView.image = UIImage(named: "img_hard_yellow")
+        case 2:
+            pooImageView.image = UIImage(named: "img_soft_brown")
+        default:
+            print("인덱스 범위를 다시 확인하세요.")
+        }
+    }
+    
     // MARK: - Data Binding
     
     func bindFriendIndex(index: Int) {
@@ -247,6 +260,7 @@ extension FriendViewController {
                         if dto.isSupported {
                             self.touchUpCheeringButton()
                         }
+                        self.changeImage(index: self.friendIndex)
                     } catch(let error){
                         print("서버 오류")
                         print(error.localizedDescription, 500)
