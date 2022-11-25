@@ -243,6 +243,10 @@ extension FriendViewController {
                         let response = try result.map(FriendListResponseDto.self)
                         let dto = response.data[self.friendIndex]
                         self.bindStoryName(name: dto.name)
+                        if dto.isSupported {
+                            self.touchUpCheeringButton()
+                        }
+
                     } catch(let error){
                         print("서버 오류")
                         print(error.localizedDescription, 500)
