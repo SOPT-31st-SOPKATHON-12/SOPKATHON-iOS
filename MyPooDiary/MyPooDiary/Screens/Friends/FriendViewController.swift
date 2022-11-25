@@ -50,7 +50,7 @@ final class FriendViewController: UIViewController {
         $0.text = "박서현님 외 12명이 응원하고 있어요!"
         $0.font = .systemFont(ofSize: 16)
     }
-    private lazy var poorImageView = makeImageView("img_regular_green")
+    private lazy var pooImageView = makeImageView("img_regular_green")
     private var pooTimeLabel = UILabel().then {
         $0.text = "오후 11:52"
         $0.font = .systemFont(ofSize: 16, weight: .bold)
@@ -124,7 +124,7 @@ extension FriendViewController {
         }
         
         // MARK: - Poo View Constraints
-        pooView.addSubviews(pooBackgroundImage, poorImageView, pooTimeLabel)
+        pooView.addSubviews(pooBackgroundImage, pooImageView, pooTimeLabel)
         pooView.snp.makeConstraints {
             $0.top.equalTo(cheeringLabel.snp.bottom).offset(18)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(24)
@@ -133,7 +133,7 @@ extension FriendViewController {
         pooBackgroundImage.snp.makeConstraints {
             $0.top.leading.trailing.bottom.equalToSuperview().inset(16)
         }
-        poorImageView.snp.makeConstraints {
+        pooImageView.snp.makeConstraints {
             $0.top.leading.trailing.bottom.equalTo(pooBackgroundImage).inset(12)
         }
         pooTimeLabel.snp.makeConstraints {
@@ -193,6 +193,8 @@ extension FriendViewController {
         pooTimeLabel.text = "\(newDate)"
     }
     
+
+    
     // MARK: - @objc Function
     @objc
     private func touchUpCheeringButton() {
@@ -245,7 +247,6 @@ extension FriendViewController {
                         if dto.isSupported {
                             self.touchUpCheeringButton()
                         }
-
                     } catch(let error){
                         print("서버 오류")
                         print(error.localizedDescription, 500)
