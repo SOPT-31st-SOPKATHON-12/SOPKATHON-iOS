@@ -186,7 +186,6 @@ extension FriendViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'hh':'mm':'ss'.'000Z"
         let date =  dateFormatter.date(from: dateString)!
-        print(date)
         dateFormatter.amSymbol = "오전"
         dateFormatter.pmSymbol = "오후"
         dateFormatter.dateFormat = "a hh:mm"
