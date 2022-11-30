@@ -6,10 +6,8 @@
 //
 
 import UIKit
-
 import SnapKit
 import Then
-
 import Moya
 
 final class ReportViewController: UIViewController {
@@ -18,13 +16,17 @@ final class ReportViewController: UIViewController {
     static var pooNumber : Int = 0
     var sectionName : [String] = ["총 배변 횟수", "만족도", "변의 무르기", "변의 색"]
     
+    private enum CellSection: CaseIterable {
+        case total, like, strength, color
+    }
+    
     // MARK: - UI
     
     private let naviView = UIView().then {
         $0.backgroundColor = .white
     }
     
-    private lazy var reportTableView = UITableView(frame: CGRect.zero, style: .grouped).then {
+    private lazy var reportTableView = UITableView(frame: CGRect.zero, style: .insetGrouped).then {
         $0.showsVerticalScrollIndicator = false
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
@@ -94,7 +96,7 @@ extension ReportViewController {
         
         reportTableView.snp.makeConstraints {
             $0.top.equalTo(naviView.snp.bottom)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(24)
+            $0.leading.trailing.equalToSuperview().inset(10)
             $0.bottom.equalToSuperview().inset(22)
         }
     }
@@ -109,17 +111,16 @@ extension ReportViewController {
 
 extension ReportViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0 :
+        let sectionType = CellSection.allCases[section]
+        switch sectionType {
+        case .total:
             return 1
-        case 1 :
+        case .like:
             return 2
-        case 2:
+        case .strength:
             return 3
-        case 3:
+        case .color:
             return 5
-        default:
-            return 0
         }
     }
     
@@ -132,25 +133,30 @@ extension ReportViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0 :
             let cell = tableView.dequeueReusableCell(withIdentifier: TotalReportCell.identifier, for: indexPath) as! TotalReportCell
-            cell.dataBind(model: dummy0[indexPath.row])
+            cell.dataBind(model: total[indexPath.row])
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: ReportTableViewCell.identifier, for: indexPath) as! ReportTableViewCell
-            cell.dataBind(model: dummy1[indexPath.row])
+            cell.dataBind(model: like[indexPath.row])
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: ReportTableViewCell.identifier, for: indexPath) as! ReportTableViewCell
-            cell.dataBind(model: dummy2[indexPath.row])
+            cell.dataBind(model: strength[indexPath.row])
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: ReportTableViewCell.identifier, for: indexPath) as! ReportTableViewCell
-            cell.dataBind(model: dummy3[indexPath.row])
+            cell.dataBind(model: color[indexPath.row])
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: ReportTableViewCell.identifier, for: indexPath) as! ReportTableViewCell
-            cell.dataBind(model: dummy1[indexPath.row])
+            cell.dataBind(model: color[indexPath.row])
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).textLabel?.textColor = .myBlack
+        (view as! UITableViewHeaderFooterView).textLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
     }
 }
 

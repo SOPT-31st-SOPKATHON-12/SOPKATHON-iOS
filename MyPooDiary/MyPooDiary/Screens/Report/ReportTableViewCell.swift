@@ -33,7 +33,6 @@ extension ReportTableViewCell {
     
     func setLayout() {
         contentView.addSubviews(reportView, reportLabel)
-        
         reportView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(16)
