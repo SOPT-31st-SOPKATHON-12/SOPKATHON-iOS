@@ -39,8 +39,9 @@ final class ReportViewController: UIViewController {
                     blur: 18,
                     spread: 0)
     }
-    private let backButton = UIButton().then {
+    private lazy var backButton = UIButton().then {
         $0.setImage(UIImage(named: "Expand_left"), for: .normal)
+        $0.addTarget(self, action: #selector(touchUpBackButton), for: .touchUpInside)
     }
     private let reportLabel = UILabel().then {
         $0.text = "최근 7일 내 배변일지"
@@ -121,10 +122,6 @@ extension ReportViewController: UITableViewDataSource {
             return 0
         }
     }
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        return headerContainerView
-//    }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionName[section]
