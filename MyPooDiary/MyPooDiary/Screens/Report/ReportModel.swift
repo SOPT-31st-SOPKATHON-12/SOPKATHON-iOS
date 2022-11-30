@@ -12,6 +12,8 @@ struct ReportModel {
     var label: String
 }
 
+let dummy0 : [TotalReportModel] = [TotalReportModel(num: "N번")]
+
 let dummy1 : [ReportModel] = [
     ReportModel(image: "good", label: "N번 만족"),
     ReportModel(image: "bad", label: "N번 불만족"),

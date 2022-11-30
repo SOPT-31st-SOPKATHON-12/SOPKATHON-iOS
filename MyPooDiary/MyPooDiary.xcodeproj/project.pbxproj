@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1476594A29299CFC008C68C6 /* reportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476594929299CFC008C68C6 /* reportTableViewCell.swift */; };
+		1476594A29299CFC008C68C6 /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476594929299CFC008C68C6 /* ReportTableViewCell.swift */; };
 		1476594C29299D0B008C68C6 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476594B29299D0B008C68C6 /* ReportModel.swift */; };
+		1498021F29375FC300132FFD /* ReportHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1498021E29375FC300132FFD /* ReportHeaderView.swift */; };
+		149802212937952000132FFD /* TotalReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149802202937952000132FFD /* TotalReportCell.swift */; };
+		149802232937957700132FFD /* TotalReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149802222937957700132FFD /* TotalReportModel.swift */; };
 		8EB6B6E1292CFC63002A33ED /* AppleSDGothicNeoUL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EB6B6D8292CFC63002A33ED /* AppleSDGothicNeoUL.ttf */; };
 		8EB6B6E2292CFC63002A33ED /* AppleSDGothicNeoL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EB6B6D9292CFC63002A33ED /* AppleSDGothicNeoL.ttf */; };
 		8EB6B6E3292CFC63002A33ED /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EB6B6DA292CFC63002A33ED /* AppleSDGothicNeoSB.ttf */; };
@@ -55,8 +58,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1476594929299CFC008C68C6 /* reportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reportTableViewCell.swift; sourceTree = "<group>"; };
+		1476594929299CFC008C68C6 /* ReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
 		1476594B29299D0B008C68C6 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
+		1498021E29375FC300132FFD /* ReportHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportHeaderView.swift; sourceTree = "<group>"; };
+		149802202937952000132FFD /* TotalReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalReportCell.swift; sourceTree = "<group>"; };
+		149802222937957700132FFD /* TotalReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalReportModel.swift; sourceTree = "<group>"; };
 		8EB6B6D8292CFC63002A33ED /* AppleSDGothicNeoUL.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoUL.ttf; sourceTree = "<group>"; };
 		8EB6B6D9292CFC63002A33ED /* AppleSDGothicNeoL.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoL.ttf; sourceTree = "<group>"; };
 		8EB6B6DA292CFC63002A33ED /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
@@ -282,8 +288,11 @@
 			isa = PBXGroup;
 			children = (
 				8EE68066292934DC00D71B64 /* ReportViewController.swift */,
-				1476594929299CFC008C68C6 /* reportTableViewCell.swift */,
+				1476594929299CFC008C68C6 /* ReportTableViewCell.swift */,
 				1476594B29299D0B008C68C6 /* ReportModel.swift */,
+				1498021E29375FC300132FFD /* ReportHeaderView.swift */,
+				149802202937952000132FFD /* TotalReportCell.swift */,
+				149802222937957700132FFD /* TotalReportModel.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -425,6 +434,7 @@
 				8EE6804F292927F600D71B64 /* ColorLiterals.swift in Sources */,
 				D60B32A9292967E100D9A277 /* FriendModel.swift in Sources */,
 				8EE6804D292927B600D71B64 /* ImageLiterals.swift in Sources */,
+				149802212937952000132FFD /* TotalReportCell.swift in Sources */,
 				8EE68060292933C000D71B64 /* RecordResponseDto.swift in Sources */,
 				8EE680492929278C00D71B64 /* addSubviews.swift in Sources */,
 				8EE680512929280300D71B64 /* FontLiterals.swift in Sources */,
@@ -435,8 +445,10 @@
 				8EE6805A2929327800D71B64 /* NetworkLoggerPlugin.swift in Sources */,
 				8EE680692929525300D71B64 /* RecordBottomSheet.swift in Sources */,
 				B8208B5A292F841800A5DE08 /* FriendListResponseDto.swift in Sources */,
+				149802232937957700132FFD /* TotalReportModel.swift in Sources */,
 				8EE6804B2929279A00D71B64 /* getClassName.swift in Sources */,
 				B8D2D89F29299A9C005F930D /* FriendTableViewCell.swift in Sources */,
+				1498021F29375FC300132FFD /* ReportHeaderView.swift in Sources */,
 				8EE68025292925CA00D71B64 /* SceneDelegate.swift in Sources */,
 				8EF1F74E292D1C9300338342 /* showToast.swift in Sources */,
 				B8D2D89B29299A58005F930D /* FriendListModel.swift in Sources */,
@@ -444,7 +456,7 @@
 				1476594C29299D0B008C68C6 /* ReportModel.swift in Sources */,
 				8EE6805C2929328700D71B64 /* RecordRouter.swift in Sources */,
 				B8208B5C292F84C300A5DE08 /* FriendsRouter.swift in Sources */,
-				1476594A29299CFC008C68C6 /* reportTableViewCell.swift in Sources */,
+				1476594A29299CFC008C68C6 /* ReportTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
