@@ -20,15 +20,15 @@ let dummy1 : [ReportModel] = [
 ]
 
 let dummy2 : [ReportModel] = [
-    ReportModel(image: "Group 2927", label: "무름 N번"),
-    ReportModel(image: "Group 2928", label: "적당함 N번"),
-    ReportModel(image: "Group 2929", label: "딱딱함 N번"),
+    ReportModel(image: "dead", label: "무름 N번"),
+    ReportModel(image: "happy", label: "적당함 N번"),
+    ReportModel(image: "sad", label: "딱딱함 N번"),
 ]
 
 let dummy3 : [ReportModel] = [
-    ReportModel(image: "Ellipse 43", label: "n번"),
-    ReportModel(image: "Ellipse 44", label: "n번"),
-    ReportModel(image: "Ellipse 45", label: "n번"),
-    ReportModel(image: "Ellipse 46", label: "n번"),
-    ReportModel(image: "Ellipse 47", label: "n번"),
+    ReportModel(image: "color1", label: "n번"),
+    ReportModel(image: "color2", label: "n번"),
+    ReportModel(image: "color3", label: "n번"),
+    ReportModel(image: "color4", label: "n번"),
+    ReportModel(image: "color5", label: "n번"),
 ]
