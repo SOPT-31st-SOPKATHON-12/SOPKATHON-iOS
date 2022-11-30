@@ -40,7 +40,7 @@ final class ReportViewController: UIViewController {
                     spread: 0)
     }
     private let backButton = UIButton().then {
-        $0.setImage(UIImage(named: "back_left"), for: .normal)
+        $0.setImage(UIImage(named: "Expand_left"), for: .normal)
     }
     private let reportLabel = UILabel().then {
         $0.text = "최근 7일 내 배변일지"
