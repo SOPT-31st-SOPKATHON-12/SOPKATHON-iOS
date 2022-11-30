@@ -30,6 +30,14 @@ final class ReportViewController: UIViewController {
         $0.separatorStyle = .none
         $0.delegate = self
         $0.dataSource = self
+        
+        $0.layer.applySketchShadow(
+                    color: .black,
+                    alpha: 0.1,
+                    x: 0,
+                    y: 2,
+                    blur: 18,
+                    spread: 0)
     }
     private let backButton = UIButton().then {
         $0.setImage(UIImage(named: "back_left"), for: .normal)
