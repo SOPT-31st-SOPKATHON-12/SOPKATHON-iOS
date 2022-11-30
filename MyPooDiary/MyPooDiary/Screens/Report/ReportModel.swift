@@ -12,20 +12,20 @@ struct ReportModel {
     var label: String
 }
 
-let dummy0 : [TotalReportModel] = [TotalReportModel(num: "N번")]
+let total : [TotalReportModel] = [TotalReportModel(num: "N번")]
 
-let dummy1 : [ReportModel] = [
+let like : [ReportModel] = [
     ReportModel(image: "good", label: "N번 만족"),
     ReportModel(image: "bad", label: "N번 불만족"),
 ]
 
-let dummy2 : [ReportModel] = [
+let strength : [ReportModel] = [
     ReportModel(image: "dead", label: "무름 N번"),
     ReportModel(image: "happy", label: "적당함 N번"),
     ReportModel(image: "sad", label: "딱딱함 N번"),
 ]
 
-let dummy3 : [ReportModel] = [
+let color : [ReportModel] = [
     ReportModel(image: "color1", label: "n번"),
     ReportModel(image: "color2", label: "n번"),
     ReportModel(image: "color3", label: "n번"),
