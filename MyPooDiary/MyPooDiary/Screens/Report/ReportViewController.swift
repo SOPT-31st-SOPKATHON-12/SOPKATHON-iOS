@@ -130,27 +130,18 @@ extension ReportViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let models : [[ReportModel]] = [like, strength, color]
         switch indexPath.section {
         case 0 :
             let cell = tableView.dequeueReusableCell(withIdentifier: TotalReportCell.identifier, for: indexPath) as! TotalReportCell
             cell.dataBind(model: total[indexPath.row])
             return cell
-        case 1:
+        case 1 ,2, 3 :
             let cell = tableView.dequeueReusableCell(withIdentifier: ReportTableViewCell.identifier, for: indexPath) as! ReportTableViewCell
-            cell.dataBind(model: like[indexPath.row])
-            return cell
-        case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ReportTableViewCell.identifier, for: indexPath) as! ReportTableViewCell
-            cell.dataBind(model: strength[indexPath.row])
-            return cell
-        case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ReportTableViewCell.identifier, for: indexPath) as! ReportTableViewCell
-            cell.dataBind(model: color[indexPath.row])
+            cell.dataBind(model: models[indexPath.section-1][indexPath.row])
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ReportTableViewCell.identifier, for: indexPath) as! ReportTableViewCell
-            cell.dataBind(model: color[indexPath.row])
-            return cell
+            return UITableViewCell()
         }
     }
     
