@@ -15,7 +15,7 @@ import Moya
 final class FriendViewController: UIViewController {
 
     // MARK: - Properties
-    let friendListProvider = MoyaProvider<FriendsRouter>(plugins: [NetworkLoggerPlugin(verbose: true)])
+    private let friendsProvider = MoyaProvider<FriendsRouter>(plugins: [NetworkLoggerPlugin(verbose: true)])
     var friendIndex: Int = 0
     
     // MARK: - UI
@@ -50,7 +50,7 @@ final class FriendViewController: UIViewController {
         $0.text = "박서현님 외 12명이 응원하고 있어요!"
         $0.font = .systemFont(ofSize: 16)
     }
-    private lazy var poorImageView = makeImageView("img_regular_green")
+    private lazy var pooImageView = makeImageView("img_regular_green")
     private var pooTimeLabel = UILabel().then {
         $0.text = "오후 11:52"
         $0.font = .systemFont(ofSize: 16, weight: .bold)
@@ -71,6 +71,7 @@ final class FriendViewController: UIViewController {
         super.viewDidLoad()
         setLayout()
         getFriendList()
+        getFriendStory()
     }
     
     // MARK: - Functions
@@ -123,7 +124,7 @@ extension FriendViewController {
         }
         
         // MARK: - Poo View Constraints
-        pooView.addSubviews(pooBackgroundImage, poorImageView, pooTimeLabel)
+        pooView.addSubviews(pooBackgroundImage, pooImageView, pooTimeLabel)
         pooView.snp.makeConstraints {
             $0.top.equalTo(cheeringLabel.snp.bottom).offset(18)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(24)
@@ -132,7 +133,7 @@ extension FriendViewController {
         pooBackgroundImage.snp.makeConstraints {
             $0.top.leading.trailing.bottom.equalToSuperview().inset(16)
         }
-        poorImageView.snp.makeConstraints {
+        pooImageView.snp.makeConstraints {
             $0.top.leading.trailing.bottom.equalTo(pooBackgroundImage).inset(12)
         }
         pooTimeLabel.snp.makeConstraints {
@@ -170,6 +171,21 @@ extension FriendViewController {
         return imageView
     }
     
+    private func changeImage(index: Int) {
+        switch index {
+        case 0:
+            pooImageView.image = UIImage(named: "img_good")
+        case 1:
+            pooImageView.image = UIImage(named: "img_hard_yellow")
+        case 2:
+            pooImageView.image = UIImage(named: "img_soft_brown")
+        default:
+            print("인덱스 범위를 다시 확인하세요.")
+        }
+    }
+    
+    // MARK: - Data Binding
+    
     func bindFriendIndex(index: Int) {
         friendIndex = index
     }
@@ -178,6 +194,19 @@ extension FriendViewController {
         infoLabel.text = "\(name)님의 변기록이에요"
         cheeringBottomLabel.text = "아직 \(name)님이 변하지 않았어요. 힘주기로 응원해보세요!"
     }
+    
+    private func bindStoryDate(dateString: String) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'hh':'mm':'ss'.'000Z"
+        let date =  dateFormatter.date(from: dateString)!
+        dateFormatter.amSymbol = "오전"
+        dateFormatter.pmSymbol = "오후"
+        dateFormatter.dateFormat = "a hh:mm"
+        let newDate = dateFormatter.string(from: date)
+        pooTimeLabel.text = "\(newDate)"
+    }
+    
+
     
     // MARK: - @objc Function
     @objc
@@ -219,7 +248,7 @@ extension CALayer {
 
 extension FriendViewController {
     private func getFriendList() {
-        friendListProvider.request(.fetchFriendList) { response in
+        friendsProvider.request(.fetchFriendList) { response in
             switch response {
             case .success(let result):
                 let status = result.statusCode
@@ -228,9 +257,34 @@ extension FriendViewController {
                         let response = try result.map(FriendListResponseDto.self)
                         let dto = response.data[self.friendIndex]
                         self.bindStoryName(name: dto.name)
-                    } catch(let err){
+                        if dto.isSupported {
+                            self.touchUpCheeringButton()
+                        }
+                        self.changeImage(index: self.friendIndex)
+                    } catch(let error){
                         print("서버 오류")
-                        print(err.localizedDescription, 500)
+                        print(error.localizedDescription, 500)
+                    }
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func getFriendStory() {
+        friendsProvider.request(.fetchFriendStory) { response in
+            switch response {
+            case .success(let result):
+                let status = result.statusCode
+                if status >= 200 && status < 300 {
+                    do {
+                        let response = try result.map(FriendStoryResponseDto.self)
+                        let dto = response.data
+                        self.bindStoryDate(dateString: dto.date)
+                    } catch(let error){
+                        print("서버 오류")
+                        print(error.localizedDescription, 500)
                     }
                 }
             case .failure(let error):

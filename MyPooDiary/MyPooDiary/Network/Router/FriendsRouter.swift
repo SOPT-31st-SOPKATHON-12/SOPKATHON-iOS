@@ -11,6 +11,7 @@ import Moya
 
 enum FriendsRouter {
     case fetchFriendList
+    case fetchFriendStory
 }
 
 extension FriendsRouter: TargetType {
@@ -22,6 +23,8 @@ extension FriendsRouter: TargetType {
         switch self {
         case .fetchFriendList:
             return "/friend"
+        case .fetchFriendStory:
+            return "/friend/1"
         }
     }
     
@@ -29,12 +32,16 @@ extension FriendsRouter: TargetType {
         switch self {
         case .fetchFriendList:
             return .get
+        case .fetchFriendStory:
+            return .get
         }
     }
     
     var task: Moya.Task {
         switch self {
         case .fetchFriendList:
+            return .requestPlain
+        case .fetchFriendStory:
             return .requestPlain
         }
     }

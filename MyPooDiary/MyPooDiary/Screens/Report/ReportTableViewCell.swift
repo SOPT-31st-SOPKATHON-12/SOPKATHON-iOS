@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class reportTableViewCell: UITableViewCell {
+class ReportTableViewCell: UITableViewCell {
 
     static let identifier = "ReportTableViewCell"
     let reportView = UIImageView()
@@ -19,7 +19,8 @@ class reportTableViewCell: UITableViewCell {
         
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
-            layout()
+            setLayout()
+            self.selectionStyle = .none
         }
         
         required init?(coder: NSCoder) {
@@ -28,13 +29,14 @@ class reportTableViewCell: UITableViewCell {
 
 }
 
-extension reportTableViewCell {
-    func layout() {
+extension ReportTableViewCell {
+    
+    func setLayout() {
         contentView.addSubviews(reportView, reportLabel)
-        
         reportView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(20)
+            $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(16)
+            $0.width.height.equalTo(40)
         }
         
         reportLabel.snp.makeConstraints {
@@ -48,3 +50,4 @@ extension reportTableViewCell {
         reportLabel.text = model.label
     }
 }
+

@@ -33,7 +33,7 @@ final class StoryViewController: UIViewController {
         $0.font = .systemFont(ofSize: 22, weight: .bold)
         $0.textColor = .white
     }
-    private lazy var poorImageView = makeImageView("img_hard_red")
+    private lazy var poorImageView = makeImageView("img_hard_red_nobk")
     private let cheeringBottomLabel = UILabel().then {
         $0.text = "아직 이길동님이 변하지 않았어요. 힘주기로 응원해보세요!"
         $0.textColor = UIColor(hex: "FFFFFF", alpha: 1)
